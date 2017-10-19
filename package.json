@@ -8,16 +8,20 @@
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-external-helpers": "^6.22.0",
+    "npm-run-all": "^4.1.1",
     "rambda": "^0.9.7",
     "ramda": "^0.25.0",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "uglifyjs-webpack-plugin": "^0.4.6",
-    "webpack": "^3.8.1"
+    "webpack": "3.6.0"
   },
   "scripts": {
-    "webpack": "webpack",
-    "rollup": "rollup -c rollup.config.js"
+    "start": "run-p webpack-* rollup-*",
+    "webpack-ramda": "webpack --config webpack.config.ramda.js",
+    "webpack-rambda": "webpack --config webpack.config.rambda.js",
+    "rollup-ramda": "rollup -c rollup.config.ramda.js",
+    "rollup-rambda": "rollup -c rollup.config.rambda.js"
   }
 }
