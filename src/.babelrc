@@ -1,0 +1,9 @@
+{
+  "presets": [
+    ["latest", {
+      "es2015": false,
+      "es2016": false,
+    }]
+  ],
+  "plugins": ["external-helpers"]
+}
