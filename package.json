@@ -16,7 +16,7 @@
     "webpack": "^3.8.1"
   },
   "scripts": {
-    "webpack": "webpack",
-    "rollup": "rollup -c rollup.config.js"
+    "x": "webpack",
+    "y": "rollup -c rollup.config.js"
   }
 }
