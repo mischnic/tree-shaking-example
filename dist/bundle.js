@@ -7,10 +7,7 @@ function range(start, end) {
   return willReturn;
 }
 
-// import add from 'rambda/modules/add.js'
-// import {range} from 'rambda/dist/rambda.esm.js'
-// import {add} from 'lodash/add'
-
+// import {range} from 'ramda'
 function fn(x) {
   return range(2, x);
 }
