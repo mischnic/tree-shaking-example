@@ -20,11 +20,13 @@
     "webpack": "^3.6.0"
   },
   "scripts": {
-    "start": "run-s rollup-* show-file-size",
+    "pre-start": "run-p webpack-* rollup-*",
+    "start": "run-s pre-start show-file-size",
     "show-file-size": "node showFileSize",
     "webpack-ramda": "webpack --config webpack.config.ramda.js",
     "webpack-rambda": "webpack --config webpack.config.rambda.js",
     "rollup-ramda": "rollup -c rollup.config.ramda.js",
-    "rollup-rambda": "rollup -c rollup.config.rambda.js"
+    "rollup-rambda-es5": "rollup -c rollup.config.rambda.es5.js",
+    "rollup-rambda-es6": "rollup -c rollup.config.rambda.es6.js"
   }
 }

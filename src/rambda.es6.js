@@ -1,4 +1,4 @@
-import {range, compose, filter} from '../files/rambda.es5'
+import {range, compose, filter} from '../files/rambda.es6'
 
 function isOdd(x){
   return x % 2 === 0

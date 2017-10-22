@@ -1,18 +1,10 @@
-function curry(fn) {
-  return (x, y) => {
-    if (y === undefined) {
-      return yHolder => fn(x, yHolder);
-    }
-
-    return fn(x, y);
-  };
-}
-
 function add(x, y) {
+  if (y === undefined) {
+    return yHolder => add(x, yHolder);
+  }
+
   return x + y;
 }
-
-var add$1 = curry(add);
 
 function addIndex(functor) {
   return function (fn, ...rest) {
@@ -23,21 +15,13 @@ function addIndex(functor) {
   };
 }
 
-function curryThree(fn) {
-  return (x, y, z) => {
-    if (y === undefined) {
-      const helper = (yHolder, zHolder) => fn(x, yHolder, zHolder);
-
-      return curry(helper);
-    } else if (z === undefined) {
-      return zHolder => fn(x, y, zHolder);
-    }
-
-    return fn(x, y, z);
-  };
-}
-
 function adjust(fn, index, arr) {
+  if (index === undefined) {
+    return (indexHolder, arrHolder) => adjust(fn, indexHolder, arrHolder);
+  } else if (arr === undefined) {
+    return arrHolder => adjust(fn, index, arrHolder);
+  }
+
   const clone = arr.concat();
 
   return clone.map((val, key) => {
@@ -49,10 +33,9 @@ function adjust(fn, index, arr) {
   });
 }
 
-var adjust$1 = curryThree(adjust);
-
 function filterObject(fn, obj) {
   const willReturn = {};
+
   for (const prop in obj) {
     if (fn(obj[prop])) {
       willReturn[prop] = obj[prop];
@@ -63,6 +46,10 @@ function filterObject(fn, obj) {
 }
 
 function filter(fn, arr) {
+  if (arr === undefined) {
+    return arrHolder => filter(fn, arrHolder);
+  }
+
   if (arr.length === undefined) {
     return filterObject(fn, arr);
   }
@@ -73,6 +60,7 @@ function filter(fn, arr) {
 
   while (++index < len) {
     const value = arr[index];
+
     if (fn(value)) {
       willReturn[resIndex++] = value;
     }
@@ -81,16 +69,20 @@ function filter(fn, arr) {
   return willReturn;
 }
 
-var filter$1 = curry(filter);
-
 function all(condition, arr) {
-  return filter$1(condition, arr).length === arr.length;
+  if (arr === undefined) {
+    return arrHolder => all(condition, arrHolder);
+  }
+
+  return filter(condition, arr).length === arr.length;
 }
 
-var all$1 = curry(all);
-
 function any(fn, arr) {
+  if (arr === undefined) {
+    return arrHolder => any(fn, arrHolder);
+  }
   let counter = 0;
+
   while (counter < arr.length) {
     if (fn(arr[counter])) {
       return true;
@@ -101,14 +93,12 @@ function any(fn, arr) {
   return false;
 }
 
-var any$1 = curry(any);
-
 function allPass(conditions, x) {
   if (arguments.length === 1) {
     return xHolder => allPass(conditions, xHolder);
   }
 
-  return !any$1(condition => !condition(x), conditions);
+  return !any(condition => !condition(x), conditions);
 }
 
 function anyPass(conditions, x) {
@@ -116,26 +106,30 @@ function anyPass(conditions, x) {
     return xHolder => anyPass(conditions, xHolder);
   }
 
-  return any$1(condition => condition(x))(conditions);
+  return any(condition => condition(x))(conditions);
 }
 
-function append(val, arr) {
+function append(x, arr) {
+  if (arr === undefined) {
+    return arrHolder => append(x, arrHolder);
+  }
   if (typeof arr === 'string') {
-    return `${arr}${val}`;
+    return `${arr}${x}`;
   }
   const clone = arr.concat();
-  clone.push(val);
+
+  clone.push(x);
 
   return clone;
 }
 
-var append$1 = curry(append);
-
 function both(x, y) {
+  if (y === undefined) {
+    return yHolder => both(x, yHolder);
+  }
+
   return input => x(input) && y(input);
 }
-
-var both$1 = curry(both);
 
 //Taken from https://github.com/getify/Functional-Light-JS/blob/master/ch4.md
 function compose(...fns) {
@@ -151,14 +145,16 @@ function compose(...fns) {
 }
 
 function concat(x, y) {
+  if (y === undefined) {
+    return yHolder => concat(x, yHolder);
+  }
 
   return typeof x === 'string' ? `${x}${y}` : [...x, ...y];
 }
 
-var concat$1 = curry(concat);
-
 function type(a) {
   const typeOf = typeof a;
+
   if (a === null) {
     return 'Null';
   } else if (a === undefined) {
@@ -197,6 +193,7 @@ function equals(a, b) {
     return true;
   }
   const aType = type(a);
+
   if (aType !== type(b)) {
     return false;
   }
@@ -210,15 +207,18 @@ function equals(a, b) {
 
   if (aType === 'Object') {
     const aKeys = Object.keys(a);
+
     if (aKeys.length === Object.keys(b).length) {
       if (aKeys.length === 0) {
         return true;
       }
       let flag = true;
+
       aKeys.map(val => {
         if (flag) {
           const aValType = type(a[val]);
           const bValType = type(b[val]);
+
           if (aValType === bValType) {
             if (aValType === 'Object') {
               if (Object.keys(a[val]).length === Object.keys(b[val]).length) {
@@ -246,11 +246,15 @@ function equals(a, b) {
   return false;
 }
 
-function contains(val, arr) {
+function contains(x, arr) {
+  if (arr === undefined) {
+    return arrHolder => contains(x, arrHolder);
+  }
   let index = -1;
   let flag = false;
+
   while (++index < arr.length && !flag) {
-    if (equals(arr[index], val)) {
+    if (equals(arr[index], x)) {
       flag = true;
     }
   }
@@ -258,12 +262,10 @@ function contains(val, arr) {
   return flag;
 }
 
-var contains$1 = curry(contains);
-
 //taken from the last comment of https://gist.github.com/mkuklis/5294248
 
-function curry$1(f, a = []) {
-  return (...p) => (o => o.length >= f.length ? f(...o) : curry$1(f, o))([...a, ...p]);
+function curry(f, a = []) {
+  return (...p) => (o => o.length >= f.length ? f(...o) : curry(f, o))([...a, ...p]);
 }
 
 var dec = (x => x - 1);
@@ -277,48 +279,63 @@ function defaultTo(defaultArgument, inputArgument) {
 }
 
 function divide(x, y) {
+  if (y === undefined) {
+    return yHolder => divide(x, yHolder);
+  }
+
   return x / y;
 }
 
-var divide$1 = curry(divide);
+function drop(dropNumber, x) {
+  if (x === undefined) {
+    return xHolder => drop(dropNumber, xHolder);
+  }
 
-function drop(dropNumber, a) {
-  return a.slice(dropNumber);
+  return x.slice(dropNumber);
 }
 
-var drop$1 = curry(drop);
+function dropLast(dropNumber, x) {
+  if (x === undefined) {
+    return xHolder => dropLast(dropNumber, xHolder);
+  }
 
-function dropLast(dropNumber, a) {
-  return a.slice(0, -dropNumber);
+  return x.slice(0, -dropNumber);
 }
-
-var dropLast$1 = curry(dropLast);
 
 function either(x, y) {
+  if (y === undefined) {
+    return yHolder => either(x, yHolder);
+  }
+
   return input => x(input) || y(input);
 }
 
-var either$1 = curry(either);
-
 function endsWith(x, y) {
+  if (y === undefined) {
+    return yHolder => endsWith(x, yHolder);
+  }
+
   return y.endsWith(x);
 }
-
-var endsWith$1 = curry(endsWith);
 
 var inc = (x => x + 1);
 
 function find(fn, arr) {
+  if (arr === undefined) {
+    return arrHolder => find(fn, arrHolder);
+  }
+
   return arr.find(fn);
 }
 
-var find$1 = curry(find);
-
 function findIndex(fn, arr) {
-  const length = arr.length;
+  if (arr === undefined) {
+    return arrHolder => findIndex(fn, arrHolder);
+  }
+  const len = arr.length;
   let index = -1;
 
-  while (++index < length) {
+  while (++index < len) {
     if (fn(arr[index])) {
       return index;
     }
@@ -326,8 +343,6 @@ function findIndex(fn, arr) {
 
   return -1;
 }
-
-var findIndex$1 = curry(findIndex);
 
 function flatten(arr, willReturn) {
   willReturn = willReturn === undefined ? [] : willReturn;
@@ -359,16 +374,19 @@ function flip(fn, ...input) {
   return flipExport(fn);
 }
 
-function tap(fn, input) {
-  fn(input);
+function tap(fn, x) {
+  if (x === undefined) {
+    return xHolder => tap(fn, xHolder);
+  }
 
-  return input;
+  fn(x);
+
+  return x;
 }
-
-var tap$1 = curry(tap);
 
 function mapObject(fn, obj) {
   const willReturn = {};
+
   for (const prop in obj) {
     willReturn[prop] = fn(obj[prop]);
   }
@@ -377,33 +395,38 @@ function mapObject(fn, obj) {
 }
 
 function map(fn, arr) {
+  if (arr === undefined) {
+    return arrHolder => map(fn, arrHolder);
+  }
   if (arr.length === undefined) {
     return mapObject(fn, arr);
   }
   let index = -1;
-  const length = arr.length;
-  const willReturn = Array(length);
+  const len = arr.length;
+  const willReturn = Array(len);
 
-  while (++index < length) {
+  while (++index < len) {
     willReturn[index] = fn(arr[index]);
   }
 
   return willReturn;
 }
 
-var map$1 = curry(map);
-
 function forEach(fn, arr) {
-  return map$1(tap$1(fn), arr);
-}
+  if (arr === undefined) {
+    return arrHolder => forEach(fn, arrHolder);
+  }
 
-var forEach$1 = curry(forEach);
+  return map(tap(fn), arr);
+}
 
 function has(prop, obj) {
+  if (obj === undefined) {
+    return objHolder => has(prop, objHolder);
+  }
+
   return obj[prop] !== undefined;
 }
-
-var has$1 = curry(has);
 
 function head(a) {
   if (typeof a === 'string') {
@@ -414,6 +437,12 @@ function head(a) {
 }
 
 function ifElse(conditionFn, ifFn, elseFn) {
+  if (ifFn === undefined) {
+    return (ifFnHolder, elseFnHolder) => ifElse(conditionFn, ifFnHolder, elseFnHolder);
+  } else if (elseFn === undefined) {
+    return elseFnHolder => ifElse(conditionFn, ifFn, elseFnHolder);
+  }
+
   return input => {
     if (conditionFn(input) === true) {
       return ifFn(input);
@@ -423,19 +452,22 @@ function ifElse(conditionFn, ifFn, elseFn) {
   };
 }
 
-var ifElse$1 = curryThree(ifElse);
-
 function isNil(x) {
   return x === undefined || x === null;
 }
 
 function includes(x, y) {
+  if (y === undefined) {
+    return yHolder => includes(x, yHolder);
+  }
+
   return y.includes(x);
 }
 
-var includes$1 = curry(includes);
-
 function indexOf(x, arr) {
+  if (arr === undefined) {
+    return arrHolder => indexOf(x, arrHolder);
+  }
   let index = -1;
   const length = arr.length;
 
@@ -447,8 +479,6 @@ function indexOf(x, arr) {
 
   return -1;
 }
-
-var indexOf$1 = curry(indexOf);
 
 function baseSlice(array, start, end) {
   let index = -1;
@@ -462,6 +492,7 @@ function baseSlice(array, start, end) {
   start >>>= 0;
 
   const result = Array(length);
+
   while (++index < length) {
     result[index] = array[index + start];
   }
@@ -478,13 +509,19 @@ function init(a) {
 }
 
 function join(glue, arr) {
+  if (arr === undefined) {
+    return arrHolder => join(glue, arrHolder);
+  }
+
   return arr.join(glue);
 }
 
-var join$1 = curry(join);
-
 function lastIndexOf(x, arr) {
+  if (arr === undefined) {
+    return arrHolder => lastIndexOf(x, arrHolder);
+  }
   let willReturn = -1;
+
   arr.map((value, key) => {
     if (equals(value, x)) {
       willReturn = key;
@@ -493,8 +530,6 @@ function lastIndexOf(x, arr) {
 
   return willReturn;
 }
-
-var lastIndexOf$1 = curry(lastIndexOf);
 
 function last(a) {
   if (typeof a === 'string') {
@@ -505,35 +540,41 @@ function last(a) {
 }
 
 function length(x) {
-
   return x.length;
 }
 
-function match(regex, str) {
-  const willReturn = str.match(regex);
+function match(regex, x) {
+  if (x === undefined) {
+    return xHolder => match(regex, xHolder);
+  }
+  const willReturn = x.match(regex);
 
   return willReturn === null ? [] : willReturn;
 }
 
-var match$1 = curry(match);
-
 function merge(obj, newProps) {
+  if (newProps === undefined) {
+    return newPropsHolder => merge(obj, newPropsHolder);
+  }
+
   return Object.assign({}, obj, newProps);
 }
 
-var merge$1 = curry(merge);
-
 function modulo(x, y) {
+  if (y === undefined) {
+    return yHolder => modulo(x, yHolder);
+  }
+
   return x % y;
 }
 
-var modulo$1 = curry(modulo);
-
 function multiply(x, y) {
+  if (y === undefined) {
+    return yHolder => multiply(x, yHolder);
+  }
+
   return x * y;
 }
-
-var multiply$1 = curry(multiply);
 
 function omit(keys, obj) {
   if (arguments.length === 1) {
@@ -542,13 +583,13 @@ function omit(keys, obj) {
   if (obj === null || obj === undefined) {
     return undefined;
   }
-  if (typeof keys === 'string') {
-    keys = keys.split(',');
-  }
+
+  const keysValue = typeof keys === 'string' ? keys = keys.split(',') : keys;
 
   const willReturn = {};
+
   for (const key in obj) {
-    if (!keys.includes(key)) {
+    if (!keysValue.includes(key)) {
       willReturn[key] = obj[key];
     }
   }
@@ -560,11 +601,11 @@ function partialCurry(fn, inputArguments = {}) {
   return inputArgumentsHolder => {
     if (type(fn) === 'Async' || type(fn) === 'Promise') {
       return new Promise((resolve, reject) => {
-        fn(merge$1(inputArgumentsHolder, inputArguments)).then(resolve).catch(reject);
+        fn(merge(inputArgumentsHolder, inputArguments)).then(resolve).catch(reject);
       });
     }
 
-    return fn(merge$1(inputArgumentsHolder, inputArguments));
+    return fn(merge(inputArgumentsHolder, inputArguments));
   };
 }
 
@@ -575,27 +616,27 @@ function path(pathArr, obj) {
   if (obj === null || obj === undefined) {
     return undefined;
   }
-  let holder = obj;
+  let willReturn = obj;
   let counter = 0;
-  if (typeof pathArr === 'string') {
-    pathArr = pathArr.split('.');
-  }
-  while (counter < pathArr.length) {
-    if (holder === null || holder === undefined) {
+
+  const pathArrValue = typeof pathArr === 'string' ? pathArr = pathArr.split('.') : pathArr;
+
+  while (counter < pathArrValue.length) {
+    if (willReturn === null || willReturn === undefined) {
       return undefined;
     }
-    holder = holder[pathArr[counter]];
+    willReturn = willReturn[pathArrValue[counter]];
     counter++;
   }
 
-  return holder;
+  return willReturn;
 }
 
 function pathOr(defaultValue, inputPath, inputObject) {
   return defaultTo(defaultValue, path(inputPath, inputObject));
 }
 
-var pathOr$1 = curry$1(pathOr);
+var pathOr$1 = curry(pathOr);
 
 function pick(keys, obj) {
   if (arguments.length === 1) {
@@ -604,15 +645,14 @@ function pick(keys, obj) {
   if (obj === null || obj === undefined) {
     return undefined;
   }
-  if (typeof keys === 'string') {
-    keys = keys.split(',');
-  }
+  const keysValue = typeof keys === 'string' ? keys.split(',') : keys;
 
   const willReturn = {};
   let counter = 0;
-  while (counter < keys.length) {
-    if (keys[counter] in obj) {
-      willReturn[keys[counter]] = obj[keys[counter]];
+
+  while (counter < keysValue.length) {
+    if (keysValue[counter] in obj) {
+      willReturn[keysValue[counter]] = obj[keysValue[counter]];
     }
     counter++;
   }
@@ -625,8 +665,12 @@ function pipe(...fns) {
 }
 
 function pluck(keyToPluck, arr) {
+  if (arr === undefined) {
+    return arrHolder => pluck(keyToPluck, arrHolder);
+  }
   const willReturn = [];
-  map$1(val => {
+
+  map(val => {
     if (!(val[keyToPluck] === undefined)) {
       willReturn.push(val[keyToPluck]);
     }
@@ -635,34 +679,44 @@ function pluck(keyToPluck, arr) {
   return willReturn;
 }
 
-var pluck$1 = curry(pluck);
-
-function prepend(val, arr) {
+function prepend(x, arr) {
+  if (arr === undefined) {
+    return arrHolder => prepend(x, arrHolder);
+  }
   if (typeof arr === 'string') {
-    return `${val}${arr}`;
+    return `${x}${arr}`;
   }
   const clone = arr.concat();
-  clone.unshift(val);
+
+  clone.unshift(x);
 
   return clone;
 }
 
-var prepend$1 = curry(prepend);
-
 function prop(key, obj) {
+  if (obj === undefined) {
+    return objHolder => prop(key, objHolder);
+  }
+
   return obj[key];
 }
 
-var prop$1 = curry(prop);
+function propEq(key, x, obj) {
+  if (x === undefined) {
+    return (xHolder, objHolder) => propEq(key, xHolder, objHolder);
+  } else if (obj === undefined) {
+    return objHolder => propEq(key, x, objHolder);
+  }
 
-function propEq(key, val, obj) {
-  return obj[key] === val;
+  return obj[key] === x;
 }
 
-var propEq$1 = curryThree(propEq);
-
 function range(start, end) {
+  if (end === undefined) {
+    return endHolder => range(start, endHolder);
+  }
   const willReturn = [];
+
   for (let i = start; i < end; i++) {
     willReturn.push(i);
   }
@@ -671,30 +725,41 @@ function range(start, end) {
 }
 
 function reduce(fn, initialValue, arr) {
+  if (initialValue === undefined) {
+    return (initialValueHolder, arrHolder) => reduce(fn, initialValueHolder, arrHolder);
+  } else if (arr === undefined) {
+    return arrHolder => reduce(fn, initialValue, arrHolder);
+  }
+
   return arr.reduce(fn, initialValue);
 }
 
-var reduce$1 = curryThree(reduce);
+function reject(fn, arr) {
+  if (arr === undefined) {
+    return arrHolder => reject(fn, arrHolder);
+  }
 
-function reject(predicate, collection) {
-  return filter$1(x => !predicate(x), collection);
+  return filter(x => !fn(x), arr);
 }
 
-var reject$1 = curry(reject);
-
-function repeat(a, num) {
+function repeat(x, num) {
+  if (num === undefined) {
+    return numHolder => repeat(x, numHolder);
+  }
   const willReturn = Array(num);
 
-  return willReturn.fill(a);
+  return willReturn.fill(x);
 }
-
-var repeat$1 = curry(repeat);
 
 function replace(regex, replacer, str) {
+  if (replacer === undefined) {
+    return (replacerHolder, strHolder) => replace(regex, replacerHolder, strHolder);
+  } else if (str === undefined) {
+    return strHolder => replace(regex, replacer, strHolder);
+  }
+
   return str.replace(regex, replacer);
 }
-
-var replace$1 = curryThree(replace);
 
 function reverse(arr) {
   const clone = arr.concat();
@@ -703,14 +768,18 @@ function reverse(arr) {
 }
 
 function sort(fn, arr) {
+  if (arr === undefined) {
+    return arrHolder => sort(fn, arrHolder);
+  }
   const arrClone = arr.concat();
 
   return arrClone.sort(fn);
 }
 
-var sort$1 = curry(sort);
-
 function sortBy(fn, arr) {
+  if (arr === undefined) {
+    return arrHolder => sortBy(fn, arrHolder);
+  }
   const arrClone = arr.concat();
 
   return arrClone.sort((a, b) => {
@@ -721,79 +790,93 @@ function sortBy(fn, arr) {
   });
 }
 
-var sortBy$1 = curry(sortBy);
-
 function split(glue, str) {
+  if (str === undefined) {
+    return strHolder => split(glue, strHolder);
+  }
+
   return str.split(glue);
 }
 
-var split$1 = curry(split);
+function splitEvery(num, x) {
+  if (x === undefined) {
+    return xHolder => splitEvery(num, xHolder);
+  }
 
-function splitEvery(num, a) {
-  num = num > 1 ? num : 1;
+  const numValue = num > 1 ? num : 1;
 
   const willReturn = [];
   let counter = 0;
-  while (counter < a.length) {
-    willReturn.push(a.slice(counter, counter += num));
+
+  while (counter < x.length) {
+    willReturn.push(x.slice(counter, counter += numValue));
   }
 
   return willReturn;
 }
 
-var splitEvery$1 = curry(splitEvery);
-
 function startsWith(x, y) {
+  if (y === undefined) {
+    return yHolder => startsWith(x, yHolder);
+  }
+
   return y.startsWith(x);
 }
 
-var startsWith$1 = curry(startsWith);
-
 function subtract(x, y) {
+  if (y === undefined) {
+    return yHolder => subtract(x, yHolder);
+  }
+
   return x - y;
 }
 
-var subtract$1 = curry(subtract);
-
 function tail(arr) {
-  return drop$1(1, arr);
+  return drop(1, arr);
 }
 
-function take(takeNumber, a) {
-  if (typeof a === 'string') {
-    return a.slice(0, takeNumber);
+function take(num, x) {
+  if (x === undefined) {
+    return xHolder => take(num, xHolder);
+  }
+  if (typeof x === 'string') {
+    return x.slice(0, num);
   }
 
-  return baseSlice(a, 0, takeNumber);
+  return baseSlice(x, 0, num);
 }
 
-var take$1 = curry(take);
-
-function takeLast(takeNumber, a) {
-  const len = a.length;
-  takeNumber = takeNumber > len ? len : takeNumber;
-
-  if (typeof a === 'string') {
-    return a.slice(len - takeNumber);
+function takeLast(num, x) {
+  if (x === undefined) {
+    return xHolder => takeLast(num, xHolder);
   }
-  takeNumber = len - takeNumber;
+  const len = x.length;
 
-  return baseSlice(a, takeNumber, len);
+  let numValue = num > len ? len : num;
+
+  if (typeof x === 'string') {
+    return x.slice(len - numValue);
+  }
+  numValue = len - numValue;
+
+  return baseSlice(x, numValue, len);
 }
-
-var takeLast$1 = curry(takeLast);
 
 function test(regex, str) {
+  if (str === undefined) {
+    return strHolder => test(regex, strHolder);
+  }
+
   return str.search(regex) !== -1;
 }
 
-var test$1 = curry(test);
+function times(fn, num) {
+  if (num === undefined) {
+    return numHolder => times(fn, numHolder);
+  }
 
-function times(fn, n) {
-  return map$1(fn, range(0, n));
+  return map(fn, range(0, num));
 }
-
-var times$1 = curry(times);
 
 function toLower(x) {
   return x.toLowerCase();
@@ -812,21 +895,23 @@ function typedDefaultTo(defaultArgument, inputArgument) {
     return inputArgumentHolder => typedDefaultTo(defaultArgument, inputArgumentHolder);
   }
 
-  return type(inputArgument) !== type(defaultArgument) ? defaultArgument : inputArgument;
+  return type(inputArgument) === type(defaultArgument) ? inputArgument : defaultArgument;
 }
 
 function typedPathOr(defaultValue, inputPath, inputObject) {
   return typedDefaultTo(defaultValue, path(inputPath, inputObject));
 }
 
-var typedPathOr$1 = curry$1(typedPathOr);
+var typedPathOr$1 = curry(typedPathOr);
 
 function uniq(arr) {
   let index = -1;
   const willReturn = [];
+
   while (++index < arr.length) {
     const value = arr[index];
-    if (!contains$1(value, willReturn)) {
+
+    if (!contains(value, willReturn)) {
       willReturn.push(value);
     }
   }
@@ -835,15 +920,19 @@ function uniq(arr) {
 }
 
 function update(index, newValue, arr) {
+  if (newValue === undefined) {
+    return (newValueHolder, arrHolder) => update(index, newValueHolder, arrHolder);
+  } else if (arr === undefined) {
+    return arrHolder => update(index, newValue, arrHolder);
+  }
   const arrClone = arr.concat();
 
   return arrClone.fill(newValue, index, index + 1);
 }
 
-var update$1 = curryThree(update);
-
 function values(obj) {
   const willReturn = [];
+
   for (const key in obj) {
     willReturn.push(obj[key]);
   }
@@ -852,7 +941,7 @@ function values(obj) {
 }
 
 function without(itemsToOmit, collection) {
-  return reduce$1((accum, item) => !contains$1(item, itemsToOmit) ? accum.concat(item) : accum, [], collection);
+  return reduce((accum, item) => !contains(item, itemsToOmit) ? accum.concat(item) : accum, [], collection);
 }
 
 const always = x => () => x;
@@ -863,4 +952,5 @@ const not = x => !x;
 const T = () => true;
 const trim = x => x.trim();
 
-export { always, complement, F, identity, not, T, trim, add$1 as add, addIndex, adjust$1 as adjust, all$1 as all, allPass, anyPass, any$1 as any, append$1 as append, both$1 as both, compose, concat$1 as concat, contains$1 as contains, curry$1 as curry, dec, defaultTo, divide$1 as divide, drop$1 as drop, dropLast$1 as dropLast, either$1 as either, endsWith$1 as endsWith, inc, equals, filter$1 as filter, find$1 as find, findIndex$1 as findIndex, flatten, flip, forEach$1 as forEach, has$1 as has, head, ifElse$1 as ifElse, isNil, includes$1 as includes, indexOf$1 as indexOf, init, join$1 as join, lastIndexOf$1 as lastIndexOf, last, length, map$1 as map, match$1 as match, merge$1 as merge, modulo$1 as modulo, multiply$1 as multiply, omit, partialCurry, path, pathOr$1 as pathOr, pick, pipe, pluck$1 as pluck, prepend$1 as prepend, prop$1 as prop, propEq$1 as propEq, range, reduce$1 as reduce, reject$1 as reject, repeat$1 as repeat, replace$1 as replace, reverse, sort$1 as sort, sortBy$1 as sortBy, split$1 as split, splitEvery$1 as splitEvery, startsWith$1 as startsWith, subtract$1 as subtract, tap$1 as tap, tail, take$1 as take, takeLast$1 as takeLast, test$1 as test, times$1 as times, toLower, toUpper, toString, type, typedPathOr$1 as typedPathOr, typedDefaultTo, uniq, update$1 as update, values, without };
+export { always, complement, F, identity, not, T, trim, add, addIndex, adjust, all, allPass, anyPass, any, append, both, compose, concat, contains, curry, dec, defaultTo, divide, drop, dropLast, either, endsWith, inc, equals, filter, find, findIndex, flatten, flip, forEach, has, head, ifElse, isNil, includes, indexOf, init, join, lastIndexOf, last, length, map, match, merge, modulo, multiply, omit, partialCurry, path, pathOr$1 as pathOr, pick, pipe, pluck, prepend, prop, propEq, range, reduce, reject, repeat, replace, reverse, sort, sortBy, split, splitEvery, startsWith, subtract, tap, tail, take, takeLast, test, times, toLower, toUpper, toString, type, typedPathOr$1 as typedPathOr, typedDefaultTo, uniq, update, values, without };
+//# sourceMappingURL=rambda.es6.js.map
