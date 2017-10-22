@@ -2323,6 +2323,12 @@ rambda@^0.9.1:
   dependencies:
     babel-preset-latest "^6.24.1"
 
+rambda@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rambda/-/rambda-1.0.0.tgz#9838d6fd6444f9905bb44ef572e87aa92a98d414"
+  dependencies:
+    babel-preset-latest "^6.24.1"
+
 rambdax@^0.6.1:
   version "0.6.5"
   resolved "https://registry.yarnpkg.com/rambdax/-/rambdax-0.6.5.tgz#4fbff7a1760592df98ec1cdaa353ac4f79f9bc94"
