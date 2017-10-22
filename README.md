@@ -1,7 +1,7 @@
 # Tree-shaking-example
 
 Example implementation of `tree-shaking` and `dead code elimination` of
-`Rambda` and `Ramda` with `Webpack` and `Rollup`.
+(Rambda)[https://github.com/selfrefactor/rambda] and `Ramda` with `Webpack` and `Rollup`.
 
 ## How to use it?
 
@@ -14,6 +14,6 @@ Example implementation of `tree-shaking` and `dead code elimination` of
 ## Argumentation
 
 Currently the major advantage of `Rambda` over `Ramda` is its tree-shaking ability and this repo
-is the proof the this statement.
+is the proof of this statement.
 
 It also shows that in terms of tree-shaking, `Rollup` is currently better choice than `Webpack`.
