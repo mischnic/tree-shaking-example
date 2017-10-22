@@ -1,7 +1,7 @@
 # Tree-shaking-example
 
 Example implementation of `tree-shaking` and `dead code elimination` of
-(Rambda)[https://github.com/selfrefactor/rambda] and `Ramda` with `Webpack` and `Rollup`.
+[Rambda](https://github.com/selfrefactor/rambda) and `Ramda` with `Webpack` and `Rollup`.
 
 ## How to use it?
 
