@@ -11,7 +11,6 @@
     "filesize": "^3.5.11",
     "log-fn": "^2.1.0",
     "npm-run-all": "^4.1.1",
-    "rambda": "0.9.7",
     "ramda": "^0.25.0",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",

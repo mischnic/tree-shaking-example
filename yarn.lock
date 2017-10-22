@@ -2317,12 +2317,6 @@ querystring@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
 
-rambda@0.9.7:
-  version "0.9.7"
-  resolved "https://registry.yarnpkg.com/rambda/-/rambda-0.9.7.tgz#d28a40c0179a1bd07c619c4e74218ff5572962dd"
-  dependencies:
-    babel-preset-latest "^6.24.1"
-
 rambda@^0.9.1:
   version "0.9.8"
   resolved "https://registry.yarnpkg.com/rambda/-/rambda-0.9.8.tgz#ac0ef1ac10ff7154c5fcd83a5e6f1c2a3e1c8a4e"
