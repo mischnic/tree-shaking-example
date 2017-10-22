@@ -16,4 +16,4 @@ Example implementation of `tree-shaking` and `dead code elimination` of
 Currently the major advantage of `Rambda` over `Ramda` is its tree-shaking ability and this repo
 is the proof the this statement.
 
-It also shows that in terms of production build `Rollup` can be better than `Webpack`
+It also shows that in terms of tree-shaking, `Rollup` is currently better choice than `Webpack`.
