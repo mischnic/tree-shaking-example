@@ -1,6 +1,6 @@
 const filesize = require('filesize')
 const {statSync} = require('fs')
-const log = require('log-fn')
+const {log} = require('log')
 const R = require('rambda')
 
 const showFileSize  = async () => {
@@ -13,8 +13,7 @@ const showFileSize  = async () => {
     )
 
     const filePaths = [
-      `${baseFilePath}/rollup.rambda.es5.js`,
-      `${baseFilePath}/rollup.rambda.es6.js`,
+      `${baseFilePath}/rollup.rambda.js`,
       `${baseFilePath}/rollup.ramda.js`,
       `${baseFilePath}/webpack.rambda.js`,
       `${baseFilePath}/webpack.ramda.js`,
