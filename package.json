@@ -1,32 +1,33 @@
 {
-  "name": "tree-shaking-example",
-  "version": "1.0.0",
-  "main": "src/index.js",
-  "repository": "git@github.com:selfrefactor/tree-shaking-example.git",
-  "author": "Dejan Toteff <deyan8284@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-plugin-external-helpers": "^6.22.0",
-    "filesize": "^3.5.11",
-    "log-fn": "^2.1.0",
-    "npm-run-all": "^4.1.1",
-    "rambda": "^1.0.0",
-    "ramda": "^0.25.0",
-    "rollup": "^0.50.0",
-    "rollup-plugin-babel": "^3.0.2",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "uglifyjs-webpack-plugin": "^0.4.6",
-    "webpack": "^3.6.0"
-  },
-  "scripts": {
-    "pre-start": "run-p webpack-* rollup-*",
-    "start": "run-s pre-start show-file-size",
-    "show-file-size": "node showFileSize",
-    "webpack-ramda": "webpack --config webpack.config.ramda.js",
-    "webpack-rambda": "webpack --config webpack.config.rambda.js",
-    "rollup-ramda": "rollup -c rollup.config.ramda.js",
-    "rollup-rambda-es5": "rollup -c rollup.config.rambda.es5.js",
-    "rollup-rambda-es6": "rollup -c rollup.config.rambda.es6.js"
-  }
+	"name": "tree-shaking-example",
+	"version": "1.0.0",
+	"main": "src/index.js",
+	"repository": "git@github.com:selfrefactor/tree-shaking-example.git",
+	"author": "Dejan Toteff <deyan8284@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"babel-core": "^6.26.0",
+		"babel-plugin-external-helpers": "^6.22.0",
+		"filesize": "^3.5.11",
+		"log": "https://github.com/selfrefactor/log#0.6.0",
+		"npm-run-all": "^4.1.2",
+		"rambda": "^1.0.9",
+		"rambdax": "^0.8.8",
+		"ramda": "^0.25.0",
+		"rollup": "^0.54.1",
+		"rollup-plugin-babel": "latest",
+		"rollup-plugin-node-resolve": "^3.0.2",
+		"uglifyjs-webpack-plugin": "^1.1.6",
+		"webpack": "^3.10.0"
+	},
+	"scripts": {
+		"build": "run-p rollup-* webpack-*",
+		"start": "run-s build show-file-size",
+		"show-file-size": "node showFileSize",
+		"webpack-ramda": "webpack --config webpack.config.ramda.js",
+		"webpack-rambda": "webpack --config webpack.config.rambda.js",
+		"rollup-ramda": "rollup -c rollup.config.ramda.js",
+		"rollup-rambda": "rollup -c rollup.config.rambda.js"
+	},
+	"devDependencies": {}
 }

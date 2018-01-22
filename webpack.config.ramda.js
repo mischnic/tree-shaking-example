@@ -8,10 +8,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
-    new UglifyJSPlugin({
-      compress: {
-        dead_code: true
-      }
-    }),
+    new UglifyJSPlugin(),
   ]
 };

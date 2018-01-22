@@ -9,7 +9,6 @@ export default {
   },
   legacy: false,
   treeshake: true,
-  externalHelpers: false,
   plugins: [
     resolve(),
     babel({
