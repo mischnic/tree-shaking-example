@@ -26,8 +26,10 @@
 		"show-file-size": "node showFileSize",
 		"webpack-ramda": "webpack --config webpack.config.ramda.js",
 		"webpack-rambda": "webpack --config webpack.config.rambda.js",
+		"webpack-rambdax": "webpack --config webpack.config.rambdax.js",
 		"rollup-ramda": "rollup -c rollup.config.ramda.js",
-		"rollup-rambda": "rollup -c rollup.config.rambda.js"
+		"rollup-rambda": "rollup -c rollup.config.rambda.js",
+		"rollup-rambdax": "rollup -c rollup.config.rambdax.js"
 	},
 	"devDependencies": {}
 }

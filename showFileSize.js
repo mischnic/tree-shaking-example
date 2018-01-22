@@ -13,8 +13,10 @@ const showFileSize  = async () => {
     )
 
     const filePaths = [
+      `${baseFilePath}/rollup.rambdax.js`,
       `${baseFilePath}/rollup.rambda.js`,
       `${baseFilePath}/rollup.ramda.js`,
+      `${baseFilePath}/webpack.rambdax.js`,
       `${baseFilePath}/webpack.rambda.js`,
       `${baseFilePath}/webpack.ramda.js`,
     ]
