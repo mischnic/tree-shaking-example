@@ -6,17 +6,13 @@
 	"author": "Dejan Toteff <deyan8284@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
-		"babel-core": "^6.26.0",
-		"babel-plugin-external-helpers": "^6.22.0",
 		"filesize": "^3.5.11",
 		"log": "https://github.com/selfrefactor/log#0.6.0",
 		"npm-run-all": "^4.1.2",
 		"rambda": "^1.0.9",
 		"rambdax": "^0.8.8",
 		"ramda": "^0.25.0",
-		"rollup": "^0.54.1",
-		"rollup-plugin-babel": "latest",
-		"rollup-plugin-node-resolve": "^3.0.2",
+		"microbundle": "^0.4.4",
 		"uglifyjs-webpack-plugin": "^1.1.6",
 		"webpack": "^3.10.0"
 	},
@@ -27,9 +23,9 @@
 		"webpack-ramda": "webpack --config webpack.config.ramda.js",
 		"webpack-rambda": "webpack --config webpack.config.rambda.js",
 		"webpack-rambdax": "webpack --config webpack.config.rambdax.js",
-		"rollup-ramda": "rollup -c rollup.config.ramda.js",
-		"rollup-rambda": "rollup -c rollup.config.rambda.js",
-		"rollup-rambdax": "rollup -c rollup.config.rambdax.js"
+		"rollup-ramda": "microbundle --entry src/ramda.js --output ramda",
+		"rollup-rambda": "microbundle --entry src/rambda.js --output rambda",
+		"rollup-rambdax": "microbundle --entry src/rambdax.js --output rambdax"
 	},
 	"devDependencies": {}
 }

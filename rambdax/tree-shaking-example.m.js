@@ -1,0 +1,2 @@
+const n=function n(t,o){if(void 0===o)return o=>n(t,o);const r=[];for(let n=t;n<o;n++)r.push(n);return r};function t(n){return n%2==0}var o;console.log((o=10,function(...n){return t=>{const o=n.slice();for(;o.length>0;)t=o.pop()(t);return t}}(function n(t,o){if(void 0===o)return o=>n(t,o);if(void 0===o.length)return function(n,t){const o={};for(const r in t)n(t[r],r)&&(o[r]=t[r]);return o}(t,o);let r=-1,e=0;const u=o.length,c=[];for(;++r<u;){const n=o[r];t(n)&&(c[e++]=n)}return c}(t),n(2))(o)));
+//# sourceMappingURL=tree-shaking-example.m.js.map
