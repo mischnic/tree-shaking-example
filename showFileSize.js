@@ -13,9 +13,9 @@ const showFileSize  = async () => {
     )
 
     const filePaths = [
-      `${baseFilePath}/rollup.rambdax.js`,
-      `${baseFilePath}/rollup.rambda.js`,
-      `${baseFilePath}/rollup.ramda.js`,
+      `${process.cwd()}/rambdax/tree-shaking-example.js`,
+      `${process.cwd()}/rambda/tree-shaking-example.js`,
+      `${process.cwd()}/ramda/tree-shaking-example.js`,
       `${baseFilePath}/webpack.rambdax.js`,
       `${baseFilePath}/webpack.rambda.js`,
       `${baseFilePath}/webpack.ramda.js`,
