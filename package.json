@@ -18,15 +18,16 @@
 		"webpack-cli": "^3.0.4"
 	},
 	"scripts": {
-		"build": "run-p rollup-* webpack-*",
-		"start": "run-s build show-file-size",
-		"show-file-size": "node showFileSize",
-		"webpack-ramda": "webpack --config webpack.config.ramda.js",
-		"webpack-rambda": "webpack --config webpack.config.rambda.js",
-		"webpack-rambdax": "webpack --config webpack.config.rambdax.js",
-		"rollup-ramda": "microbundle --entry src/ramda.js --output ramda",
-		"rollup-rambda": "microbundle --entry src/rambda.js --output rambda",
-		"rollup-rambdax": "microbundle --entry src/rambdax.js --output rambdax"
+		"build": "run-p rollup:* webpack:*",
+		"start": "run-s build show:file:size",
+		"show:file:size": "node showFileSize",
+		"webpack:ramda": "webpack --config webpack.config.ramda.js",
+		"webpack:rambda": "webpack --config webpack.config.rambda.js",
+		"webpack:rambdax": "webpack --config webpack.config.rambdax.js",
+		"rollup:lodash": "microbundle --entry src/lodash.js --output lodash",
+		"rollup:ramda": "microbundle --entry src/ramda.js --output ramda",
+		"rollup:rambda": "microbundle --entry src/rambda.js --output rambda",
+		"rollup:rambdax": "microbundle --entry src/rambdax.js --output rambdax"
 	},
 	"devDependencies": {}
 }

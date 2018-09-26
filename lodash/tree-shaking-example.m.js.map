@@ -1,0 +1,1 @@
+{"version":3,"file":"tree-shaking-example.m.js","sources":["../src/lodash.js"],"sourcesContent":["const lodash = require('lodash')\n\nfunction set(object, path, value){\n  return lodash.set(object, path, value)\n}\n"],"names":["require"],"mappings":"AAAeA,QAAQ"}
