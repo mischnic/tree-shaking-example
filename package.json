@@ -8,26 +8,32 @@
 	"dependencies": {
 		"filesize": "^3.5.11",
 		"log": "https://github.com/selfrefactor/log#0.6.0",
-		"microbundle": "^0.4.4",
 		"npm-run-all": "^4.1.2",
-		"rambda": "^1.1.4",
-		"rambdax": "^0.9.1",
+		"rambda": "^1.2.4",
+		"rambdax": "^0.13.2",
 		"ramda": "^0.25.0",
 		"uglifyjs-webpack-plugin": "^1.2.5",
 		"webpack": "^4.12.0",
-		"webpack-cli": "^3.0.4"
+		"webpack-cli": "^3.0.4",
+		"@babel/core": "7.1.2",
+    "@babel/preset-env": "7.1.0",
+    "babel-core": "7.0.0-bridge.0",
+    "rollup": "0.66.6",
+    "rollup-plugin-babel": "4.0.3",
+    "rollup-plugin-commonjs": "9.2.0",
+    "rollup-plugin-node-resolve": "3.4.0"
 	},
 	"scripts": {
-		"build": "run-p rollup:* webpack:*",
+		"clean":"rm -rf rollup&&rm -rf webpack",
+		"build": "yarn clean&&run-p rollup:* webpack:*",
 		"start": "run-s build show:file:size",
 		"show:file:size": "node showFileSize",
-		"webpack:ramda": "webpack --config webpack.config.ramda.js",
-		"webpack:rambda": "webpack --config webpack.config.rambda.js",
-		"webpack:rambdax": "webpack --config webpack.config.rambdax.js",
-		"rollup:lodash": "microbundle --entry src/lodash.js --output lodash",
-		"rollup:ramda": "microbundle --entry src/ramda.js --output ramda",
-		"rollup:rambda": "microbundle --entry src/rambda.js --output rambda",
-		"rollup:rambdax": "microbundle --entry src/rambdax.js --output rambdax"
+		"webpack:ramda": "LIB='ramda' webpack",
+		"webpack:rambda": "LIB='rambda' webpack",
+		"webpack:rambdax": "LIB='rambdax' webpack",
+		"rollup:ramda": "LIB='ramda' rollup -c",
+		"rollup:rambda": "LIB='rambda' rollup -c",
+		"rollupx:rambdax": "rollup -c"
 	},
 	"devDependencies": {}
 }

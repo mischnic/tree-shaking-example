@@ -13,12 +13,11 @@ const showFileSize  = async () => {
     )
 
     const filePaths = [
-      `${process.cwd()}/rambdax/tree-shaking-example.js`,
-      `${process.cwd()}/rambda/tree-shaking-example.js`,
-      `${process.cwd()}/ramda/tree-shaking-example.js`,
-      `${baseFilePath}/webpack.rambdax.js`,
-      `${baseFilePath}/webpack.rambda.js`,
-      `${baseFilePath}/webpack.ramda.js`,
+      `${__dirname}/rollup/ramda.js`,
+      `${__dirname}/rollup/rambda.js`,
+      `${__dirname}/webpack/ramda.js`,
+      `${__dirname}/webpack/rambda.js`,
+      `${__dirname}/webpack/rambdax.js`,
     ]
     filePaths.map(x => {
       const filePath = getFilePath(x)
