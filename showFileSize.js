@@ -1,29 +1,28 @@
 const filesize = require('filesize')
 const {statSync} = require('fs')
-const {log} = require('log')
-const R = require('rambda')
+const {remove} = require('rambdax')
+const cTable = require('console.table');
 
 const showFileSize  = async () => {
   try{
-    const baseFilePath = `${process.cwd()}/dist`
-    const getFilePath = R.compose(
-      R.join('/'),
-      R.takeLast(2),
-      R.split('/')
-    )
-
     const filePaths = [
       `${__dirname}/rollup/ramda.js`,
       `${__dirname}/rollup/rambda.js`,
+      `${__dirname}/rollup/lodash.js`,
+      `${__dirname}/webpack/lodash.js`,
       `${__dirname}/webpack/ramda.js`,
       `${__dirname}/webpack/rambda.js`,
       `${__dirname}/webpack/rambdax.js`,
     ]
-    filePaths.map(x => {
-      const filePath = getFilePath(x)
+    const sizes = filePaths.map(x => {
       const {size} = statSync(x)
-      log(`${filePath} - ${filesize(size)}`, 'box')
+      
+      return {
+        file: remove([`${__dirname}/`,'.js'], x), 
+        size: filesize(size)
+      }
     })
+    console.table(sizes)
   }catch(err){
     console.log(err)
   }
