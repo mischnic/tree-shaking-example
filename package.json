@@ -27,7 +27,7 @@
 		"webpack-cli": "^3.0.4"
 	},
 	"scripts": {
-		"parcel": "parcel build entry.js --target node",
+		"parcel": "parcel build src/rambda.js --target node --out-file foo.js",
 		"clean": "rm -rf rollup&&rm -rf webpack",
 		"build": "yarn clean&&run-p rollup:* webpack:*",
 		"start": "run-s build show:file:size",

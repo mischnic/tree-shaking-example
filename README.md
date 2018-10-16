@@ -3,7 +3,13 @@
 Example implementation of `tree-shaking` and `dead code elimination` of
 [Rambda](https://github.com/selfrefactor/rambda) and `Ramda` with `Webpack` and `Rollup`.
 
-## How to use it?
+## Notes
+
+- `Rollup` bundle of  `lodash` is not working for whatever reason
+
+- `ramdaBabel` is what [https://github.com/megawac/babel-plugin-ramda](babel-plugin-ramda) is doing
+
+## How to use it
 
 1. Run `git clone https://github.com/selfrefactor/tree-shaking-example.git&&cd tree-shaking-example`
 
