@@ -4,11 +4,11 @@ function isOdd(x){
   return x % 2 === 0
 }
 
-function fn(x) {
+function fn(input) {
   return _.flowRight([
-    _.filter(isOdd),
-    _.range(2)
-  ])(x)
+    x => _.filter(x, isOdd),
+    rangeFn = x => _.range(2, x),
+  ])(input)
 }
 
 console.log(fn(10))

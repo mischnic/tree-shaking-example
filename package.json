@@ -27,19 +27,22 @@
 		"webpack-cli": "^3.0.4"
 	},
 	"scripts": {
-		"parcel": "parcel build src/rambda.js --target node --out-file foo.js",
 		"clean": "rm -rf rollup&&rm -rf webpack",
 		"build": "yarn clean&&run-p rollup:* webpack:*",
 		"start": "run-s build show:file:size",
 		"show:file:size": "node showFileSize",
+		"parcel:lodash": "parcel build src/rambda.js --target node --out-file lodash.js",
+		"parcel:rambda": "parcel build src/rambda.js --target node --out-file rambda.js",
+		"parcel:rambdax": "parcel build src/rambda.js --target node --out-file rambdax.js",
+		"parcel:ramda": "parcel build src/rambda.js --target node --out-file ramda.js",
+		"rollup:lodash": "LIB='lodash' rollup -c",
+		"rollup:rambda": "LIB='rambda' rollup -c",
+		"rollup:ramda": "LIB='ramda' rollup -c",
+		"rollupx:rambdax": "rollup -c",
 		"webpack:lodash": "LIB='lodash' webpack",
-		"webpack:ramda": "LIB='ramda' webpack",
 		"webpack:rambda": "LIB='rambda' webpack",
 		"webpack:rambdax": "LIB='rambdax' webpack",
-		"rollup:lodash": "LIB='lodash' rollup -c",
-		"rollup:ramda": "LIB='ramda' rollup -c",
-		"rollup:rambda": "LIB='rambda' rollup -c",
-		"rollupx:rambdax": "rollup -c"
+		"webpack:ramda": "LIB='ramda' webpack"
 	},
 	"devDependencies": {}
 }

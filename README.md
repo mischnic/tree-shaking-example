@@ -5,8 +5,6 @@ Example implementation of `tree-shaking` and `dead code elimination` of
 
 ## Notes
 
-- `Rollup` bundle of  `lodash` is not working for whatever reason
-
 - `ramdaBabel` is what [https://github.com/megawac/babel-plugin-ramda](babel-plugin-ramda) is doing
 
 ## How to use it
