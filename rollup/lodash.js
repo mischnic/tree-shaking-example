@@ -6,8 +6,12 @@ function isOdd(x) {
   return x % 2 === 0;
 }
 
-function fn(x) {
-  return _.flowRight([_.filter(isOdd), _.range(2)])(x);
+function fn(input) {
+  return _.flowRight([function (x) {
+    return _.filter(x, isOdd);
+  }, rangeFn = function rangeFn(x) {
+    return _.range(2, x);
+  }])(input);
 }
 
 console.log(fn(10));

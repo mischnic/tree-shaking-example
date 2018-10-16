@@ -17,4 +17,4 @@ export default [
       { file: `rollup/${libName}.js`, format: 'cjs' }
     ],
   },
-];
+]
