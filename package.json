@@ -28,7 +28,7 @@
 	},
 	"scripts": {
 		"clean": "rm -rf rollup&&rm -rf webpack&&rm -rf dist",
-		"build": "yarn clean&&run-s rollup:* webpack:* parcel:*",
+		"build": "yarn clean&&run-p rollup:* webpack:* parcel:*",
 		"parcel": "run-s parcel:*",
 		"start": "run-s build show:size",
 		"show:size": "node showFileSize",
