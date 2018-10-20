@@ -6,20 +6,22 @@ Example implementation of `tree-shaking` and `dead code elimination` of
 ## Latest results
 
 ```
-file                size    
 ------------------  --------
-rollup/ramdaBabel   276 B   
-rollup/lodash       278 B   
-rollup/rambda       785 B   
-parcel/ramda        1.2 KB  
-parcel/lodash       1.2 KB  
-parcel/rambda       1.2 KB  
-parcel/rambdax      1.2 KB  
-parcel/ramdaBabel   1.23 KB 
-webpack/rambda      2 KB    
-webpack/ramda       7.3 KB  
-webpack/ramdaBabel  8.36 KB 
-webpack/rambdax     31.98 KB
+file                size
+------------------  --------
+rollup/rambdax      206 B
+rollup/ramdaBabel   276 B
+rollup/lodash       278 B
+rollup/rambda       785 B
+parcel/lodash       1.2 KB
+parcel/rambdax      1.2 KB
+parcel/ramda        1.2 KB
+parcel/rambda       1.2 KB
+parcel/ramdaBabel   1.23 KB
+webpack/rambda      2 KB
+webpack/ramda       7.3 KB
+webpack/ramdaBabel  8.36 KB
+webpack/rambdax     26.71 KB
 webpack/lodash      70.76 KB
 rollup/ramda        92.16 KB
 

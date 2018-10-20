@@ -38,6 +38,7 @@ const showFileSize  = async () => {
       `${__dirname}/rollup/ramda.js`,
       `${__dirname}/rollup/ramdaBabel.js`,
       `${__dirname}/rollup/rambda.js`,
+      `${__dirname}/rollup/rambdax.js`,
       `${__dirname}/rollup/lodash.js`,
       `${__dirname}/webpack/lodash.js`,
       `${__dirname}/webpack/ramda.js`,

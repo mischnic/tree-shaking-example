@@ -15,16 +15,16 @@
 		"log": "https://github.com/selfrefactor/log#0.6.0",
 		"npm-run-all": "^4.1.2",
 		"parcel-bundler": "^1.10.3",
-		"rambda": "^1.2.4",
-		"rambdax": "^0.13.4",
+		"rambda": "^1.2.6",
+		"rambdax": "^0.13.7",
 		"ramda": "^0.25.0",
 		"rollup": "0.66.6",
 		"rollup-plugin-babel": "4.0.3",
 		"rollup-plugin-commonjs": "9.2.0",
 		"rollup-plugin-node-resolve": "3.4.0",
 		"uglifyjs-webpack-plugin": "^1.2.5",
-		"webpack": "^4.12.0",
-		"webpack-cli": "^3.0.4"
+		"webpack": "^4.21.0",
+		"webpack-cli": "^3.1.2"
 	},
 	"scripts": {
 		"clean": "rm -rf rollup&&rm -rf webpack&&rm -rf dist",
@@ -38,6 +38,7 @@
 		"parcel:ramda": "parcel build src/rambda.js --target node --out-file ramda.js",
 		"parcel:ramdaBabel": "parcel build src/ramdaBabel.js --target node --out-file ramdaBabel.js",
 		"rollup:lodash": "LIB='lodash' rollup -c",
+		"rollup:rambdax": "LIB='rambdax' rollup -c",
 		"rollup:rambda": "LIB='rambda' rollup -c",
 		"rollup:ramda": "LIB='ramda' rollup -c",
 		"rollup:ramdaBabel": "LIB='ramdaBabel' rollup -c",
