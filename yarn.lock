@@ -5119,10 +5119,10 @@ rambda@^1.2.6:
   resolved "https://registry.yarnpkg.com/rambda/-/rambda-1.2.6.tgz#5feed8039369b65c389ee1e02db9527695d30e83"
   integrity sha512-3tjeDuSMKAf8t099BejrmLgXdexAh63AsU2c2ZTcN5y/gt5njw03Wsfb+Ti9b08ZWLLDN5r0EvKynfYM91PB6g==
 
-rambdax@^0.13.7:
-  version "0.13.7"
-  resolved "https://registry.yarnpkg.com/rambdax/-/rambdax-0.13.7.tgz#32ed2995bd76146f7c191a39be3d24acac94eb42"
-  integrity sha512-yYFlG3Vw61uGDnjUcnmktHzwydYE8CKfPOKaCWyfQQh7UVPeKS2aTdkreHxLBJW/nkkA+K2EYmlmsyQzJLMHcg==
+rambdax@^0.13.8:
+  version "0.13.8"
+  resolved "https://registry.yarnpkg.com/rambdax/-/rambdax-0.13.8.tgz#e920f9e0c8b4cbd3543788db73255e1d56bd22c1"
+  integrity sha512-PP6pngE2IdQm69rg5RlwFK8V3JVu65VG4UlHbrBqIG9Xyws9Zlj+XIMxT4fW6H8ceVtOS06FZjcigOxbnNjfvw==
 
 ramda@^0.25.0:
   version "0.25.0"
