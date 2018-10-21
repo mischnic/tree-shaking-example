@@ -5283,6 +5283,11 @@ regjsparser@^0.3.0:
   dependencies:
     jsesc "~0.5.0"
 
+remeda@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/remeda/-/remeda-0.0.6.tgz#d7ae74b0bc8158c3b7f3e01c07b587e80344b8e3"
+  integrity sha512-R8inVWz9HxQVKZvQV4WnhxirGf+GmEN2XpEiHW4+yEhFT53n6C4SfDbqAI3mwwtn3KYwDLUNieyii8jjMmpwgA==
+
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"

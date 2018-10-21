@@ -17,6 +17,7 @@
 		"rambda": "^1.2.6",
 		"rambdax": "^0.14.0",
 		"ramda": "^0.25.0",
+		"remeda": "^0.0.6",
 		"rollup": "^0.66.6",
 		"rollup-plugin-babel": "^4.1.0-0",
 		"rollup-plugin-commonjs": "^9.2.0",
@@ -34,9 +35,11 @@
 		"parcel:lodash": "parcel build src/lodash.js --target node --out-file lodash.js",
 		"parcel:rambda": "parcel build src/rambda.js --target node --out-file rambda.js",
 		"parcel:rambdax": "parcel build src/rambdax.js --target node --out-file rambdax.js",
-		"parcel:ramda": "parcel build src/rambda.js --target node --out-file ramda.js",
+		"parcel:ramda": "parcel build src/ramda.js --target node --out-file ramda.js",
+		"parcel:remeda": "parcel build src/remeda.js --target node --out-file remeda.js",
 		"parcel:ramdaBabel": "parcel build src/ramdaBabel.js --target node --out-file ramdaBabel.js",
 		"rollup:lodash": "LIB='lodash' rollup -c",
+		"rollup:remeda": "LIB='remeda' rollup -c",
 		"rollup:rambdax": "LIB='rambdax' rollup -c",
 		"rollup:rambda": "LIB='rambda' rollup -c",
 		"rollup:ramda": "LIB='ramda' rollup -c",
@@ -44,10 +47,9 @@
 		"webpack:lodash": "LIB='lodash' webpack",
 		"webpack:rambda": "LIB='rambda' webpack",
 		"webpack:rambdax": "LIB='rambdax' webpack",
+		"webpack:remeda": "LIB='remeda' webpack",
 		"webpack:ramda": "LIB='ramda' webpack",
 		"webpack:ramdaBabel": "LIB='ramdaBabel' webpack"
 	},
-	"devDependencies": {
-		
-	}
+	"devDependencies": {}
 }
