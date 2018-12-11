@@ -1,2 +1,5 @@
 .cache
 node_modules
+parcel
+rollup
+webpack

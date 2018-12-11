@@ -1,6 +1,6 @@
 'use strict';
 
-function filterObject(t,u){const v={};for(const w in u){if(t(u[w],w)){v[w]=u[w];}}return v;}function filter(z,A){if(arguments.length===1){return B=>filter(z,B);}if(A===void 0){return [];}if(!Array.isArray(A)){return filterObject(z,A);}let C=-1,D=0;const E=A.length,G=[];while(++C<E){const H=A[C];if(z(H)){G[D++]=H;}}return G;}function compose(...fns){return (...args)=>{const h1=fns.slice();if(h1.length>0){const fn=h1.pop();let j1=fn(...args);while(h1.length>0){j1=h1.pop()(j1);}return j1;}return void 0;};}function range(F4,G4){if(arguments.length===1)return H4=>range(F4,H4);const I4=[];for(let i=F4;i<G4;i++){I4.push(i);}return I4;}
+function filterObject(m,n){const q={};for(const r in n){if(m(n[r],r)){q[r]=n[r];}}return q;}function filter(s,t){if(arguments.length===1){return u=>filter(s,u);}if(t===void 0){return [];}if(!Array.isArray(t)){return filterObject(s,t);}let v=-1,w=0;const z=t.length,A=[];while(++v<z){const B=t[v];if(s(B,v)){A[w++]=B;}}return A;}function compose(...fns){return (...args)=>{const c1=fns.slice();if(c1.length>0){const fn=c1.pop();let e1=fn(...args);while(c1.length>0){e1=c1.pop()(e1);}return e1;}return void 0;};}function range(F4,G4){if(arguments.length===1)return H4=>range(F4,H4);const I4=[];for(let i=F4;i<G4;i++){I4.push(i);}return I4;}
 
 function isOdd(x) {
   return x % 2 === 0;

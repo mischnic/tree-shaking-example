@@ -1,14 +1,14 @@
-import {range, compose, filter} from 'rambda'
+import { range, compose, filter } from "rambda";
 
-function isOdd(x){
-  return x % 2 === 0
+function isOdd(x) {
+	return x % 2 === 0;
 }
 
 function fn(x) {
-  return compose(
-    filter(isOdd),
-    range(2)
-  )(x)
+	return compose(
+		filter(isOdd),
+		range(2)
+	)(x);
 }
 
-console.log(fn(10))
+console.log(fn(10));

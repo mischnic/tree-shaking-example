@@ -6,10 +6,5 @@
         "browsers": "ie >= 11"
       }
     }]
-  ],
-  "env": {
-    "test": {
-      "presets": [["@babel/preset-env"]]
-    }
-  }
+  ]
 }

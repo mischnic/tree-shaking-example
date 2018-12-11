@@ -810,6 +810,23 @@ function toString(value) {
   return value == null ? '' : baseToString(value);
 }
 
+function compose(...fns) {
+  return (...args) => {
+    const list = fns.slice();
+    if (list.length > 0) {
+      const fn = list.pop();
+      let result = fn(...args);
+      while (list.length > 0) {
+        result = list.pop()(result);
+      }
+
+      return result;
+    }
+
+    return undefined;
+  };
+}
+
 function filterObject(fn, obj) {
   const willReturn = {};
 
@@ -843,29 +860,12 @@ function filter(fn, arr) {
   while (++index < len) {
     const value = arr[index];
 
-    if (fn(value)) {
+    if (fn(value, index)) {
       willReturn[resIndex++] = value;
     }
   }
 
   return willReturn;
-}
-
-function compose(...fns) {
-  return (...args) => {
-    const list = fns.slice();
-    if (list.length > 0) {
-      const fn = list.pop();
-      let result = fn(...args);
-      while (list.length > 0) {
-        result = list.pop()(result);
-      }
-
-      return result;
-    }
-
-    return undefined;
-  };
 }
 
 function range(start, end) {

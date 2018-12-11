@@ -1,14 +1,11 @@
-const _ = require('lodash')
+import _ from "lodash";
 
-function isOdd(x){
-  return x % 2 === 0
+function isOdd(x) {
+	return x % 2 === 0;
 }
 
 function fn(input) {
-  return _.flowRight([
-    x => _.filter(x, isOdd),
-    rangeFn = x => _.range(2, x),
-  ])(input)
+	return _.flowRight([x => _.filter(x, isOdd), x => _.range(2, x)])(input);
 }
 
-console.log(fn(10))
+console.log(fn(10));

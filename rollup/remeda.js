@@ -4,7 +4,7 @@
  * Creates a function with `data-first` and `data-last` signatures.
  *
  * `purry` is a dynamic function and it's not type safe. It should be wrapped by a function that have proper typings.
- * Refer to the example below to see usage a correct usage.
+ * Refer to the example below for correct usage.
  *
  * @param fn the function to purry.
  * @param args the arguments
@@ -130,6 +130,10 @@ function pipe(value) {
 }
 function _processItem(_a) {
     var item = _a.item, lazySeq = _a.lazySeq, acc = _a.acc;
+    if (lazySeq.length === 0) {
+        acc.push(item);
+        return false;
+    }
     var lazyResult;
     for (var i = 0; i < lazySeq.length; i++) {
         var lazyFn = lazySeq[i];
