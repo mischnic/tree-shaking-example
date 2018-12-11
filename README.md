@@ -3,48 +3,33 @@
 Example implementation of `tree-shaking` and `dead code elimination` of
 [Rambda](https://github.com/selfrefactor/rambda), `Ramda`, `Remeda` and `Lodash` with `Webpack`, `Parcel` and `Rollup`.
 
-## Latest results
-
-```
-------------------  --------
-file                size
-------------------  --------
-rollup/lodash       278 B
-rollup/rambda       785 B
-parcel/lodash       1.2 KB
-parcel/rambda       1.2 KB
-parcel/ramda        1.2 KB
-webpack/rambda      2 KB
-webpack/rambdax     4.79 KB
-webpack/ramda       7.3 KB
-rollup/rambdax      20.77 KB
-rollup/ramda        92.16 KB
-```
-
 ## Latest detailed results
 
 ```
 ------------------  --------
 file                size
-------------------  --------
-rollup/ramdaBabel   276 B
-rollup/lodash       278 B
-rollup/rambda       785 B
-parcel/ramdaBabel   1.23 KB
-parcel/lodash       1.2 KB
-parcel/rambda       1.2 KB
-parcel/ramda        1.2 KB
-parcel/rambdax      1.2 KB
-parcel/remeda       1.2 KB
+------------------  ---------
+parcel/lodash-es    19.28 KB
+rollup/lodash-es    495.34 KB
+webpack/lodash-es   20.74 KB
+parcel/lodash       91.13 KB
+rollup/lodash       526.79 KB
+webpack/lodash      70.57 KB
+parcel/remeda       1.9 KB
+rollup/remeda       20.55 KB
+webpack/remeda      2.74 KB
+parcel/ramda        6.36 KB
+rollup/ramda        88.74 KB
+webpack/ramda       7.16 KB
+parcel/ramdaBabel   6.72 KB
+rollup/ramdaBabel   23.09 KB
+webpack/ramdaBabel  8.39 KB
+parcel/rambda       9.81 KB
+rollup/rambda       787 B
 webpack/rambda      2 KB
-webpack/remeda      2.68 KB
-webpack/rambdax     4.79 KB
-webpack/ramda       7.3 KB
-webpack/ramdaBabel  8.36 KB
-rollup/remeda       20.48 KB
+parcel/rambdax      25.57 KB
 rollup/rambdax      20.77 KB
-webpack/lodash      70.76 KB
-rollup/ramda        92.16 KB
+webpack/rambdax     5.09 KB
 ```
 
  `ramdaBabel` is what [https://github.com/megawac/babel-plugin-ramda](babel-plugin-ramda) is doing. This means that in order to get best tree-shaking, you need to use `babel`, which is not always what you might want.

@@ -29,12 +29,12 @@
 		"webpack-cli": "^3.1.2"
 	},
 	"scripts": {
-		"clean": "rm -rf rollup&&rm -rf webpack&&rm -rf dist",
+		"clean": "rm -rf .cache parcel rollup webpack",
 		"build": "yarn clean && run-s rollup:* webpack:* parcel:*",
 		"parcel": "run-s parcel:*",
 		"rollup": "run-s rollup:*",
 		"webpack": "run-s webpack:*",
-		"start": "run-s build show:size",
+		"start": "run-s build showSize",
 		"showSize": "node showFileSize",
 		"parcel:lodash": "parcel build src/lodash.js --experimental-scope-hoisting -d parcel",
 		"parcel:lodash-es": "parcel build src/lodash-es.js --experimental-scope-hoisting -d parcel",
