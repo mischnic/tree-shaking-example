@@ -1,4 +1,5 @@
 const webpack = require("webpack");
+const TerserPlugin = require("terser-webpack-plugin");
 
 const libName = process.env.LIB;
 
@@ -20,5 +21,8 @@ module.exports = {
 			}
 		]
 	},
-	plugins: [new webpack.optimize.ModuleConcatenationPlugin()],
+	optimization: {
+		minimizer: [new TerserPlugin()]
+	},
+	plugins: [new webpack.optimize.ModuleConcatenationPlugin()]
 };

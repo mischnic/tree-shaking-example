@@ -10,25 +10,25 @@ Example implementation of `tree-shaking` and `dead code elimination` of
 file                size
 ------------------  ---------
 parcel/lodash-es    19.28 KB
-rollup/lodash-es    495.34 KB
+rollup/lodash-es    117.79 KB
 webpack/lodash-es   20.74 KB
 parcel/lodash       91.13 KB
-rollup/lodash       526.79 KB
+rollup/lodash       69.1 KB
 webpack/lodash      70.57 KB
 parcel/remeda       1.9 KB
-rollup/remeda       20.55 KB
+rollup/remeda       8.46 KB
 webpack/remeda      2.74 KB
 parcel/ramda        6.36 KB
-rollup/ramda        88.74 KB
+rollup/ramda        20.91 KB
 webpack/ramda       7.16 KB
 parcel/ramdaBabel   6.72 KB
-rollup/ramdaBabel   23.09 KB
+rollup/ramdaBabel   8.27 KB
 webpack/ramdaBabel  8.39 KB
 parcel/rambda       9.81 KB
-rollup/rambda       787 B
+rollup/rambda       682 B
 webpack/rambda      2 KB
 parcel/rambdax      25.57 KB
-rollup/rambdax      20.77 KB
+rollup/rambdax      6.03 KB
 webpack/rambdax     5.09 KB
 ```
 
