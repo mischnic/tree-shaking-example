@@ -15,7 +15,7 @@ export default [
 				exclude: "node_modules/**"
 			}),
 			commonjs(),
-			terser({ sourcemap: false })
+			terser({ sourcemap: false, toplevel: true })
 		],
 		output: [{ file: `rollup/${libName}.js`, format: "cjs" }]
 	}
