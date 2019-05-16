@@ -17,7 +17,7 @@ rollup/rxjs          9.08 KB   Stmts: 58%, Functions: 59%
 webpack/rxjs         10.82 KB  Stmts: 56%, Functions: 57%
 
 parcel/react-icons   1.19 MB   Runtime error!
-rollup/react-icons   29.08 KB  Stmts: 18%, Functions:  6%
+rollup/react-icons   9.18 KB   Stmts: 24%, Functions: 10%
 webpack/react-icons  10.42 KB  Stmts: 25%, Functions: 15%
 
 parcel/remeda        1.96 KB   Stmts: 53%, Functions: 87%

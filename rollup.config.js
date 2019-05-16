@@ -15,7 +15,15 @@ export default [
 				exclude: "node_modules/**"
 			}),
 			commonjs(),
-			terser({ sourcemap: false, toplevel: true })
+			terser({
+				compress: {
+					global_defs: {
+						"process.env.NODE_ENV": "production"
+					}
+				},
+				sourcemap: false,
+				toplevel: true
+			})
 		],
 		output: [{ file: `rollup/${libName}.js`, format: "cjs" }]
 	}
