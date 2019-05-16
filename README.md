@@ -9,27 +9,27 @@ Example implementation of `tree-shaking` and `dead code elimination` of
 ------------------  --------
 file                size
 ------------------  --------
-parcel/lodash-es    19.28 KB
-rollup/lodash-es    81.08 KB
+parcel/lodash-es    19.16 KB
+rollup/lodash-es    18.22 KB
 webpack/lodash-es   20.74 KB
-parcel/lodash       91.13 KB
-rollup/lodash       68.95 KB
+parcel/lodash       91.12 KB
+rollup/lodash       69 KB
 webpack/lodash      70.57 KB
-parcel/remeda       1.9 KB
-rollup/remeda       6.63 KB
-webpack/remeda      2.74 KB
-parcel/ramda        6.36 KB
-rollup/ramda        6.68 KB
+parcel/remeda       1.96 KB
+rollup/remeda       1.89 KB
+webpack/remeda      2.8 KB
+parcel/ramda        6.35 KB
+rollup/ramda        6.25 KB
 webpack/ramda       7.16 KB
 parcel/ramdaBabel   6.72 KB
 rollup/ramdaBabel   6.35 KB
 webpack/ramdaBabel  8.39 KB
-parcel/rambda       9.81 KB
-rollup/rambda       589 B
-webpack/rambda      2 KB
-parcel/rambdax      25.57 KB
-rollup/rambdax      3.83 KB
-webpack/rambdax     5.09 KB
+parcel/rambda       8.85 KB
+rollup/rambda       591 B
+webpack/rambda      2.19 KB
+parcel/rambdax      21.72 KB
+rollup/rambdax      4.63 KB
+webpack/rambdax     8.3 KB
 ```
 
  `ramdaBabel` is what [https://github.com/megawac/babel-plugin-ramda](babel-plugin-ramda) is doing. This means that in order to get best tree-shaking, you need to use `babel`, which is not always what you might want.
