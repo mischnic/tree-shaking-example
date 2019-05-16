@@ -3,3 +3,4 @@ node_modules
 parcel
 rollup
 webpack
+.nyc_output
