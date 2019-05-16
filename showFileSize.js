@@ -30,6 +30,7 @@ function sortSizes(sizes) {
 const supportedLibraries = [
 	"lodash-es",
 	"lodash",
+	"rxjs",
 	"remeda",
 	"ramda",
 	"ramdaBabel",
@@ -51,15 +52,20 @@ const showFileSize = async () => {
 			)
 			.s(flatten);
 
-		const sizes = filePaths.map(x => {
-			const { size } = statSync(x);
-			const fileRaw = remove([`${__dirname}/`, ".js"], x);
-			return {
-				file: replace("dist", "parcel", fileRaw),
-				size: filesize(size)
-			};
-		});
-		// console.table(sortSizes(sizes));
+		const sizes = filePaths
+			.map(x => {
+				const { size } = statSync(x);
+				return {
+					file: remove([`${__dirname}/`, ".js"], x),
+					size: filesize(size)
+				};
+			})
+			.reduce((acc, v, i) => {
+				if (v.file.includes("parcel") && i !== 0)
+					acc.push({ file: "", size: "" });
+				acc.push(v);
+				return acc;
+			}, []);
 		console.table(sizes);
 	} catch (err) {
 		console.log(err);

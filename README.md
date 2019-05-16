@@ -12,21 +12,27 @@ file                size
 parcel/lodash-es    19.16 KB
 rollup/lodash-es    18.22 KB
 webpack/lodash-es   20.74 KB
+
 parcel/lodash       91.12 KB
 rollup/lodash       69 KB
 webpack/lodash      70.57 KB
+
 parcel/remeda       1.96 KB
 rollup/remeda       1.89 KB
 webpack/remeda      2.8 KB
+
 parcel/ramda        6.35 KB
 rollup/ramda        6.25 KB
 webpack/ramda       7.16 KB
+
 parcel/ramdaBabel   6.72 KB
 rollup/ramdaBabel   6.35 KB
 webpack/ramdaBabel  8.39 KB
+
 parcel/rambda       8.85 KB
 rollup/rambda       591 B
 webpack/rambda      2.19 KB
+
 parcel/rambdax      21.72 KB
 rollup/rambdax      4.63 KB
 webpack/rambdax     8.3 KB

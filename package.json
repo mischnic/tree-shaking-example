@@ -11,7 +11,8 @@
 		"rambda": "^2.7.0",
 		"rambdax": "^2.7.0",
 		"ramda": "^0.26.1",
-		"remeda": "^0.0.11"
+		"remeda": "^0.0.11",
+		"rxjs": "^6.5.2"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.4.4",
@@ -40,6 +41,7 @@
 		"showSize": "node showFileSize",
 		"parcel:lodash": "parcel build src/lodash.js --experimental-scope-hoisting -d parcel",
 		"parcel:lodash-es": "parcel build src/lodash-es.js --experimental-scope-hoisting -d parcel",
+		"parcel:rxjs": "parcel build src/rxjs.js --experimental-scope-hoisting -d parcel",
 		"parcel:rambda": "parcel build src/rambda.js --experimental-scope-hoisting -d parcel",
 		"parcel:rambdax": "parcel build src/rambdax.js --experimental-scope-hoisting -d parcel",
 		"parcel:ramda": "parcel build src/ramda.js --experimental-scope-hoisting -d parcel",
@@ -47,6 +49,7 @@
 		"parcel:ramdaBabel": "parcel build src/ramdaBabel.js --experimental-scope-hoisting -d parcel",
 		"rollup:lodash": "LIB='lodash' rollup -c",
 		"rollup:lodash-es": "LIB='lodash-es' rollup -c",
+		"rollup:rxjs": "LIB='rxjs' rollup -c",
 		"rollup:remeda": "LIB='remeda' rollup -c",
 		"rollup:rambdax": "LIB='rambdax' rollup -c",
 		"rollup:rambda": "LIB='rambda' rollup -c",
@@ -54,6 +57,7 @@
 		"rollup:ramdaBabel": "LIB='ramdaBabel' rollup -c",
 		"webpack:lodash": "LIB='lodash' webpack -p",
 		"webpack:lodash-es": "LIB='lodash-es' webpack -p",
+		"webpack:rxjs": "LIB='rxjs' webpack -p",
 		"webpack:rambda": "LIB='rambda' webpack -p",
 		"webpack:rambdax": "LIB='rambdax' webpack -p",
 		"webpack:remeda": "LIB='remeda' webpack -p",
