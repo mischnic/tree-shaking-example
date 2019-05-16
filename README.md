@@ -1,10 +1,5 @@
 # Tree-shaking-example
 
-Example implementation of `tree-shaking` and `dead code elimination` of
-[Rambda](https://github.com/selfrefactor/rambda), `Ramda`, `Remeda` and `Lodash` with `Webpack`, `Parcel` and `Rollup`.
-
-## Latest detailed results
-
 ```
 -------------------  --------  -------------------------
 file                 size      coverage
@@ -55,9 +50,3 @@ webpack/rambdax      8.3 KB    Stmts: 42%, Functions: 36%
 2. Run `yarn`
 
 3. Run `yarn start`
-
-## Argumentation
-
-Currently one of the major advantages of `Rambda` over `Ramda` is its out-of-the-box tree-shaking ability. This repo should be the proof of this statement.
-
-It also shows that in terms of tree-shaking, `Rollup` is currently better choice than `Webpack` and `Parcel`.
