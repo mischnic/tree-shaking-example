@@ -1,4 +1,4 @@
-const { statSync } = require("fs");
+const { existsSync, statSync } = require("fs");
 const { remove } = require("rambdax");
 require("console.table");
 
@@ -43,6 +43,8 @@ const expected = {
 };
 
 const bundlers = [
+	'esbuild-0.3.9',
+	'esbuild-0.4.2',
 	'parcel',
 	'rollup',
 	'webpack',
@@ -60,11 +62,12 @@ for (const xx in expected) {
 	const xxSizes = [];
 	for (const bundler of bundlers) {
 		const x = `${__dirname}/${bundler}/${xx}.js`;
-		const { size } = statSync(x);
 		const file = remove([`${__dirname}/`, ".js"], x);
-
-		// Validate that the output is actually correct
 		try {
+			if (!existsSync(x)) throw new Error(`Missing file: ${xx}.js`);
+			const { size } = statSync(x);
+
+			// Validate that the output is actually correct
 			allowedToRequire = x;
 			const actual = require(x).answer;
 			if (actual === expected[xx]) {
@@ -78,7 +81,7 @@ for (const xx in expected) {
 	}
 
 	// Sort by output size for easier comparison
-	xxSizes.sort((a, b) => a.size - b.size);
+	xxSizes.sort((a, b) => a.size - b.size || (a.file > b.file) - (a.file < b.file));
 	for (const { file, size, error } of xxSizes) {
 		const width = 8;
 		sizes.push({
