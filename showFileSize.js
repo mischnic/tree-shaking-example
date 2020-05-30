@@ -1,4 +1,3 @@
-const filesize = require("filesize");
 const { statSync } = require("fs");
 const cp = require("child_process");
 const { remove } = require("rambdax");
@@ -32,7 +31,7 @@ try {
 			const { size } = statSync(x);
 			return {
 				file: remove([`${__dirname}/`, ".js"], x),
-				size: filesize(size),
+				size: `${(size / 1024).toFixed(1)}kb`.padStart(8),
 			};
 		})
 		.reduce((acc, v, i) => {
