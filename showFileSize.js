@@ -15,32 +15,36 @@ const supportedLibraries = [
 	"rambdax"
 ];
 
-try {
-	const filePaths = supportedLibraries
-		.map(xx => {
-			return [
-				`${__dirname}/parcel/${xx}.js`,
-				`${__dirname}/rollup/${xx}.js`,
-				`${__dirname}/webpack/${xx}.js`
-			];
-		})
-		.reduce((acc, v) => acc.concat(v), []);
+const bundlers = [
+	'parcel',
+	'rollup',
+	'webpack',
+];
 
-	const sizes = filePaths
-		.map(x => {
-			const { size } = statSync(x);
-			return {
-				file: remove([`${__dirname}/`, ".js"], x),
-				size: `${(size / 1024).toFixed(1)}kb`.padStart(8),
-			};
-		})
-		.reduce((acc, v, i) => {
-			if (v.file.includes("parcel") && i !== 0)
-				acc.push({ file: "", size: "" });
-			acc.push(v);
-			return acc;
-		}, []);
-	console.table(sizes);
-} catch (err) {
-	console.log(err);
+const sizes = [];
+
+for (const xx of supportedLibraries) {
+	// Add a space between libraries
+	if (sizes.length > 0) {
+		sizes.push({ file: "", size: "" });
+	}
+
+	// Measure the output size from each bundler
+	const xxSizes = [];
+	for (const bundler of bundlers) {
+		const x = `${__dirname}/${bundler}/${xx}.js`;
+		const { size } = statSync(x);
+		xxSizes.push({ file: remove([`${__dirname}/`, ".js"], x), size });
+	}
+
+	// Sort by output size for easier comparison
+	xxSizes.sort((a, b) => a.size - b.size);
+	for (const { file, size } of xxSizes) {
+		sizes.push({
+			file,
+			size: `${(size / 1024).toFixed(1)}kb`.padStart(8),
+		});
+	}
 }
+
+console.table(sizes);
