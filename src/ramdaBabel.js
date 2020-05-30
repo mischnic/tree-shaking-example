@@ -13,4 +13,4 @@ function fn(x) {
 	)(x);
 }
 
-console.log(fn(10));
+export const answer = fn(10).join(',');

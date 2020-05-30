@@ -7,6 +7,7 @@ module.exports = {
 	mode: "production",
 	entry: `./src/${libName}.js`,
 	output: {
+		libraryTarget: 'commonjs2',
 		filename: `./webpack/${libName}.js`,
 		path: __dirname
 	},

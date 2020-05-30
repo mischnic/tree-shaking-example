@@ -8,4 +8,4 @@ function fn(input) {
 	return _.flowRight([x => _.filter(x, isOdd), x => _.range(2, x)])(input);
 }
 
-console.log(fn(10));
+export const answer = fn(10).join(',');
