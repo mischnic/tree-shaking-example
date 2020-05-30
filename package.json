@@ -36,7 +36,7 @@
 	},
 	"scripts": {
 		"clean": "rm -rf .cache parcel rollup webpack",
-		"build": "yarn clean && run-s rollup:* webpack:* parcel:*",
+		"build": "run-s clean && run-s rollup:* webpack:* parcel:*",
 		"parcel": "run-s parcel:*",
 		"rollup": "run-s rollup:*",
 		"webpack": "run-s webpack:*",
