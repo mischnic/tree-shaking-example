@@ -2,7 +2,6 @@ import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
-import nodePolyfills from "rollup-plugin-node-polyfills";
 import react from "react";
 import reactIs from "react-is";
 
@@ -13,7 +12,9 @@ export default [
 		input: `src/${libName}.js`,
 		treeshake: true,
 		plugins: [
-			resolve(),
+			resolve({
+				browser: true
+			}),
 			babel({
 				exclude: "node_modules/**",
 			}),
@@ -23,7 +24,6 @@ export default [
 					"react-is": Object.keys(reactIs),
 				},
 			}),
-			libName === "material-ui" && nodePolyfills(),
 			terser({
 				compress: {
 					global_defs: {

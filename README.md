@@ -50,9 +50,9 @@ parcel/rambdax          6.4kb
 esbuild/rambdax         7.0kb
 webpack/rambdax         7.6kb
 
+rollup/material-ui     85.9kb
 webpack/material-ui    86.5kb
 esbuild/material-ui    88.8kb
-rollup/material-ui    218.7kb
 parcel/material-ui    452.5kb
 ```
 
