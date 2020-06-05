@@ -8,6 +8,7 @@
 	"dependencies": {
 		"esbuild-0.3.9": "npm:esbuild@0.3.9",
 		"esbuild-0.4.2": "npm:esbuild@0.4.2",
+		"esbuild-0.4.6": "npm:esbuild@0.4.6",
 		"lodash": "^4.17.11",
 		"lodash-es": "^4.17.11",
 		"rambda": "^2.7.0",

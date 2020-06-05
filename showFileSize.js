@@ -45,6 +45,7 @@ const expected = {
 const bundlers = [
 	'esbuild-0.3.9',
 	'esbuild-0.4.2',
+	'esbuild-0.4.6',
 	'parcel',
 	'rollup',
 	'webpack',
