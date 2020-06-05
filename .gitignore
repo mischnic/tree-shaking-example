@@ -5,3 +5,4 @@ parcel
 rollup
 webpack
 .nyc_output
+.parcel-cache/

@@ -1,13 +1,13 @@
 {
 	"name": "tree-shaking-example",
 	"version": "1.0.0",
-	"main": "src/index.js",
 	"repository": "git@github.com:selfrefactor/tree-shaking-example.git",
 	"author": "Dejan Toteff <deyan8284@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
 		"lodash": "4.17.15",
 		"lodash-es": "4.17.15",
+		"parcel": "^2.0.0-nightly.280",
 		"rambda": "5.6.1",
 		"rambdax": "3.7.0",
 		"ramda": "0.27.0",
@@ -24,7 +24,6 @@
 		"esbuild": "0.4.7",
 		"filesize": "6.1.0",
 		"npm-run-all": "4.1.5",
-		"parcel-bundler": "1.12.4",
 		"rollup": "2.13.1",
 		"rollup-plugin-babel": "4.4.0",
 		"rollup-plugin-commonjs": "10.1.0",
@@ -33,6 +32,11 @@
 		"terser-webpack-plugin": "3.0.3",
 		"webpack": "4.43.0",
 		"webpack-cli": "3.3.11"
+	},
+	"targets": {
+		"default": {
+			"outputFormat": "commonjs"
+		}
 	},
 	"scripts": {
 		"clean": "rm -rf .cache parcel rollup webpack esbuild",
@@ -52,15 +56,15 @@
 		"esbuild:rambda": "LIB='rambda' node esbuild.js",
 		"esbuild:ramda": "LIB='ramda' node esbuild.js",
 		"esbuild:ramdaBabel": "LIB='ramdaBabel' node esbuild.js",
-		"parcel:lodash": "parcel build src/lodash.js -d parcel",
-		"parcel:lodash-es": "parcel build src/lodash-es.js --experimental-scope-hoisting -d parcel",
-		"parcel:rxjs": "parcel build src/rxjs.js --experimental-scope-hoisting -d parcel",
-		"parcel:react-icons": "parcel build src/react-icons.js --experimental-scope-hoisting -d parcel",
-		"parcel:rambda": "parcel build src/rambda.js --experimental-scope-hoisting -d parcel",
-		"parcel:rambdax": "parcel build src/rambdax.js --experimental-scope-hoisting -d parcel",
-		"parcel:ramda": "parcel build src/ramda.js --experimental-scope-hoisting -d parcel",
-		"parcel:remeda": "parcel build src/remeda.js --experimental-scope-hoisting -d parcel",
-		"parcel:ramdaBabel": "parcel build src/ramdaBabel.js --experimental-scope-hoisting -d parcel",
+		"parcel:lodash": "parcel build src/lodash.js --dist-dir parcel",
+		"parcel:lodash-es": "parcel build src/lodash-es.js --dist-dir parcel",
+		"parcel:rxjs": "parcel build src/rxjs.js --dist-dir parcel",
+		"parcel:react-icons": "parcel build src/react-icons.js --dist-dir parcel",
+		"parcel:rambda": "parcel build src/rambda.js --dist-dir parcel",
+		"parcel:rambdax": "parcel build src/rambdax.js --dist-dir parcel",
+		"parcel:ramda": "parcel build src/ramda.js --dist-dir parcel",
+		"parcel:remeda": "parcel build src/remeda.js --dist-dir parcel",
+		"parcel:ramdaBabel": "parcel build src/ramdaBabel.js --dist-dir parcel",
 		"rollup:lodash": "LIB='lodash' rollup -c",
 		"rollup:lodash-es": "LIB='lodash-es' rollup -c",
 		"rollup:rxjs": "LIB='rxjs' rollup -c",
