@@ -5,7 +5,7 @@ This is a fork of https://github.com/mischnic/tree-shaking-example that adds [es
 ```
 file                 size      error
 -------------------  --------  -----
-rollup/lodash-es       18.1kb
+rollup/lodash-es       18.0kb
 parcel/lodash-es       18.3kb
 webpack/lodash-es      20.6kb
 esbuild/lodash-es      21.3kb
@@ -21,8 +21,8 @@ rollup/rxjs            10.1kb
 webpack/rxjs           10.3kb
 
 parcel/react-icons      9.4kb
+rollup/react-icons      9.8kb
 webpack/react-icons    10.0kb
-rollup/react-icons     24.4kb
 esbuild/react-icons  1241.9kb
 
 rollup/remeda           2.2kb

@@ -23,7 +23,7 @@ export default [
 					"react-is": Object.keys(reactIs),
 				},
 			}),
-			nodePolyfills(),
+			libName === "material-ui" && nodePolyfills(),
 			terser({
 				compress: {
 					global_defs: {
