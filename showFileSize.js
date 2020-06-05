@@ -9,8 +9,9 @@ let allowedToRequire;
 // Forbid the generated code from using require(). We are using these tools as
 // bundlers, and they must bundle their dependencies.
 //
-// Note that Parcel fails this test when importing "lodash" due to a bug:
-// https://github.com/parcel-bundler/parcel/issues/4410.
+// Note that Parcel fails this test when importing "lodash" with experimental
+// scope hoisting enabled: https://github.com/parcel-bundler/parcel/issues/4410.
+// The workaround is to disable experimental scope hoisting for that benchmark.
 moduleProto.require = name => {
 	if (name === allowedToRequire) return originalRequire(name);
 	throw new Error(`Attempted to require "${name}"`);

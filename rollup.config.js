@@ -26,7 +26,6 @@ export default [
 						"process.env.NODE_ENV": "production"
 					}
 				},
-				sourcemap: false,
 				toplevel: true
 			})
 		],
