@@ -1,7 +1,5 @@
 const dirs = {
-  'esbuild-0.3.9': require('esbuild-0.3.9'),
-  'esbuild-0.4.2': require('esbuild-0.4.2'),
-  'esbuild-0.4.6': require('esbuild-0.4.6'),
+  'esbuild': require('esbuild'),
 };
 
 const libName = process.env.LIB;

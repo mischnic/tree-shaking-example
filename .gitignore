@@ -1,6 +1,6 @@
 .cache
 node_modules
-esbuild-*
+esbuild
 parcel
 rollup
 webpack
