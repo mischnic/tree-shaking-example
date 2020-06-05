@@ -5,6 +5,7 @@
 	"author": "Dejan Toteff <deyan8284@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
+		"@material-ui/core": "^4.10.1",
 		"lodash": "4.17.15",
 		"lodash-es": "4.17.15",
 		"parcel": "^2.0.0-nightly.280",
@@ -12,6 +13,7 @@
 		"rambdax": "3.7.0",
 		"ramda": "0.27.0",
 		"react": "16.13.1",
+		"react-dom": "^16.13.1",
 		"react-icons": "3.10.0",
 		"remeda": "0.0.20",
 		"rxjs": "6.5.5"
@@ -28,6 +30,7 @@
 		"rollup-plugin-babel": "4.4.0",
 		"rollup-plugin-commonjs": "10.1.0",
 		"rollup-plugin-node-resolve": "5.2.0",
+		"rollup-plugin-node-polyfills": "0.2.1",
 		"rollup-plugin-terser": "6.1.0",
 		"terser-webpack-plugin": "3.0.3",
 		"webpack": "4.43.0",
@@ -39,8 +42,8 @@
 		}
 	},
 	"scripts": {
-		"clean": "rm -rf .cache parcel rollup webpack esbuild",
-		"build": "run-s clean && run-s rollup:* webpack:* parcel:* esbuild:*",
+		"clean": "rm -rf .parcel-cache parcel rollup webpack esbuild",
+		"build": "run-s clean && run-s rollup webpack parcel esbuild",
 		"parcel": "run-s parcel:*",
 		"rollup": "run-s rollup:*",
 		"webpack": "run-s webpack:*",
@@ -56,6 +59,7 @@
 		"esbuild:rambda": "LIB='rambda' node esbuild.js",
 		"esbuild:ramda": "LIB='ramda' node esbuild.js",
 		"esbuild:ramdaBabel": "LIB='ramdaBabel' node esbuild.js",
+		"esbuild:material-ui": "LIB='material-ui' node esbuild.js",
 		"parcel:lodash": "parcel build src/lodash.js --dist-dir parcel",
 		"parcel:lodash-es": "parcel build src/lodash-es.js --dist-dir parcel",
 		"parcel:rxjs": "parcel build src/rxjs.js --dist-dir parcel",
@@ -65,6 +69,7 @@
 		"parcel:ramda": "parcel build src/ramda.js --dist-dir parcel",
 		"parcel:remeda": "parcel build src/remeda.js --dist-dir parcel",
 		"parcel:ramdaBabel": "parcel build src/ramdaBabel.js --dist-dir parcel",
+		"parcel:material-ui": "parcel build src/material-ui.js --dist-dir parcel",
 		"rollup:lodash": "LIB='lodash' rollup -c",
 		"rollup:lodash-es": "LIB='lodash-es' rollup -c",
 		"rollup:rxjs": "LIB='rxjs' rollup -c",
@@ -74,6 +79,7 @@
 		"rollup:rambda": "LIB='rambda' rollup -c",
 		"rollup:ramda": "LIB='ramda' rollup -c",
 		"rollup:ramdaBabel": "LIB='ramdaBabel' rollup -c",
+		"rollup:material-ui": "LIB='material-ui' rollup -c",
 		"webpack:lodash": "LIB='lodash' webpack -p",
 		"webpack:lodash-es": "LIB='lodash-es' webpack -p",
 		"webpack:rxjs": "LIB='rxjs' webpack -p",
@@ -82,6 +88,7 @@
 		"webpack:rambdax": "LIB='rambdax' webpack -p",
 		"webpack:remeda": "LIB='remeda' webpack -p",
 		"webpack:ramda": "LIB='ramda' webpack -p",
-		"webpack:ramdaBabel": "LIB='ramdaBabel' webpack -p"
+		"webpack:ramdaBabel": "LIB='ramdaBabel' webpack -p",
+		"webpack:material-ui": "LIB='material-ui' webpack -p"
 	}
 }

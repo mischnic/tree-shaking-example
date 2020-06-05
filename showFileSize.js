@@ -41,6 +41,7 @@ const expected = {
 	'ramdaBabel': '2,4,6,8',
 	'rambda': '2,4,6,8',
 	'rambdax': '2,4,6,8',
+	'material-ui': '<div class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded">Hello</div>',
 };
 
 const bundlers = [
