@@ -4,6 +4,8 @@ import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import react from "react";
 import reactIs from "react-is";
+import reactDom from "react-dom";
+import propTypes from "prop-types";
 
 const libName = process.env.LIB;
 
@@ -22,6 +24,8 @@ export default [
 				namedExports: {
 					react: Object.keys(react),
 					"react-is": Object.keys(reactIs),
+					"react-dom": Object.keys(reactDom),
+					"prop-types": Object.keys(propTypes),
 				},
 			}),
 			terser({
