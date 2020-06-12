@@ -20,7 +20,7 @@ parcel/rxjs            10.1kb
 rollup/rxjs            10.1kb
 webpack/rxjs           10.3kb
 
-parcel/react-icons      9.4kb
+parcel/react-icons      9.3kb
 rollup/react-icons      9.8kb
 webpack/react-icons    10.0kb
 esbuild/react-icons  1241.9kb
@@ -28,7 +28,7 @@ esbuild/react-icons  1241.9kb
 rollup/remeda           2.2kb
 esbuild/remeda          2.3kb
 webpack/remeda          3.1kb
-parcel/remeda           9.8kb
+parcel/remeda           7.1kb
 
 parcel/ramda            6.3kb
 rollup/ramda            6.4kb
@@ -50,10 +50,15 @@ parcel/rambdax          6.4kb
 esbuild/rambdax         7.0kb
 webpack/rambdax         7.6kb
 
-rollup/material-ui     86.1kb
-webpack/material-ui    86.5kb
-esbuild/material-ui    88.8kb
-parcel/material-ui    452.5kb
+rollup/material-ui     85.6kb
+webpack/material-ui    86.0kb
+esbuild/material-ui    88.3kb
+parcel/material-ui    445.8kb
+
+rollup/sentry          59.4kb
+parcel/sentry          63.7kb
+webpack/sentry         65.1kb
+esbuild/sentry         66.8kb
 ```
 
 Note that getting a small size for the `react-icons` benchmark relies on an unsafe transformation where the side effects of assignments to the `displayName` property must be ignored. This is unsafe because the `displayName` property may have a setter that runs other side effects. If those assignments are commented out, esbuild generates a 9.5kb bundle.

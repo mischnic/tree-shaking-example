@@ -5,11 +5,12 @@
 	"author": "Dejan Toteff <deyan8284@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
-		"@material-ui/core": "^4.10.1",
+		"@material-ui/core": "^4.10.2",
+		"@sentry/browser": "^5.17.0",
 		"lodash": "4.17.15",
 		"lodash-es": "4.17.15",
-		"parcel": "^2.0.0-nightly.280",
-		"rambda": "5.6.1",
+		"parcel": "^2.0.0-nightly.296",
+		"rambda": "5.6.2",
 		"rambdax": "3.7.0",
 		"ramda": "0.27.0",
 		"react": "16.13.1",
@@ -26,7 +27,7 @@
 		"esbuild": "0.5.3",
 		"filesize": "6.1.0",
 		"npm-run-all": "4.1.5",
-		"rollup": "2.13.1",
+		"rollup": "2.15.0",
 		"rollup-plugin-babel": "4.4.0",
 		"rollup-plugin-commonjs": "10.1.0",
 		"rollup-plugin-node-resolve": "5.2.0",
@@ -59,6 +60,7 @@
 		"esbuild:ramda": "LIB='ramda' node esbuild.js",
 		"esbuild:ramdaBabel": "LIB='ramdaBabel' node esbuild.js",
 		"esbuild:material-ui": "LIB='material-ui' node esbuild.js",
+		"esbuild:sentry": "LIB='sentry' node esbuild.js",
 		"parcel:lodash": "parcel build src/lodash.js --dist-dir parcel",
 		"parcel:lodash-es": "parcel build src/lodash-es.js --dist-dir parcel",
 		"parcel:rxjs": "parcel build src/rxjs.js --dist-dir parcel",
@@ -69,6 +71,7 @@
 		"parcel:remeda": "parcel build src/remeda.js --dist-dir parcel",
 		"parcel:ramdaBabel": "parcel build src/ramdaBabel.js --dist-dir parcel",
 		"parcel:material-ui": "parcel build src/material-ui.js --dist-dir parcel",
+		"parcel:sentry": "parcel build src/sentry.js --dist-dir parcel",
 		"rollup:lodash": "LIB='lodash' rollup -c",
 		"rollup:lodash-es": "LIB='lodash-es' rollup -c",
 		"rollup:rxjs": "LIB='rxjs' rollup -c",
@@ -79,6 +82,7 @@
 		"rollup:ramda": "LIB='ramda' rollup -c",
 		"rollup:ramdaBabel": "LIB='ramdaBabel' rollup -c",
 		"rollup:material-ui": "LIB='material-ui' rollup -c",
+		"rollup:sentry": "LIB='sentry' rollup -c",
 		"webpack:lodash": "LIB='lodash' webpack -p",
 		"webpack:lodash-es": "LIB='lodash-es' webpack -p",
 		"webpack:rxjs": "LIB='rxjs' webpack -p",
@@ -88,6 +92,7 @@
 		"webpack:remeda": "LIB='remeda' webpack -p",
 		"webpack:ramda": "LIB='ramda' webpack -p",
 		"webpack:ramdaBabel": "LIB='ramdaBabel' webpack -p",
-		"webpack:material-ui": "LIB='material-ui' webpack -p"
+		"webpack:material-ui": "LIB='material-ui' webpack -p",
+		"webpack:sentry": "LIB='sentry' webpack -p"
 	}
 }
