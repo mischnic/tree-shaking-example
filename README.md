@@ -40,10 +40,10 @@ parcel/ramdaBabel       6.6kb
 esbuild/ramdaBabel      7.7kb
 webpack/ramdaBabel      8.5kb
 
-parcel/rambda           3.7kb
-rollup/rambda           3.7kb
-esbuild/rambda          4.1kb
-webpack/rambda          4.6kb
+rollup/rambda           1.2kb
+parcel/rambda           2.8kb
+esbuild/rambda          3.2kb
+webpack/rambda          3.7kb
 
 rollup/rambdax          4.9kb
 parcel/rambdax          6.4kb
