@@ -13,7 +13,7 @@ let allowedToRequire;
 // scope hoisting enabled: https://github.com/parcel-bundler/parcel/issues/4410.
 // The workaround is to disable experimental scope hoisting for that benchmark.
 moduleProto.require = name => {
-	if (name === allowedToRequire) return originalRequire(name);
+	if (name === allowedToRequire || name === "process") return originalRequire(name);
 	throw new Error(`Attempted to require "${name}"`);
 };
 

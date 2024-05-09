@@ -8,7 +8,6 @@ async function main() {
   for (const dir in dirs) {
     try {
       await dirs[dir].build({
-        stdio: 'inherit',
         bundle: true,
         entryPoints: [`${__dirname}/src/${libName}.js`],
         outdir: `${__dirname}/${dir}`,
