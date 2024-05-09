@@ -3,15 +3,15 @@
 ```
 file                 size      error
 -------------------  --------  -----
-rollup/lodash-es       17.9kb
-parcel/lodash-es       18.4kb
-webpack/lodash-es      20.6kb
-esbuild/lodash-es      21.3kb
+rollup/lodash-es       18.1kb
+parcel/lodash-es       18.6kb
+webpack/lodash-es      20.7kb
+esbuild/lodash-es      21.4kb
 
-parcel/lodash          68.4kb
-rollup/lodash          70.6kb
-esbuild/lodash         71.7kb
-webpack/lodash         71.9kb
+parcel/lodash          68.7kb
+rollup/lodash          71.0kb
+esbuild/lodash         72.0kb
+webpack/lodash         72.3kb
 
 parcel/rxjs             9.7kb
 rollup/rxjs            10.2kb

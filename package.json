@@ -7,8 +7,8 @@
 	"dependencies": {
 		"@material-ui/core": "^4.10.2",
 		"@sentry/browser": "^5.17.0",
-		"lodash": "4.17.15",
-		"lodash-es": "4.17.15",
+		"lodash": "4.17.21",
+		"lodash-es": "4.17.21",
 		"rambda": "5.7.0",
 		"rambdax": "3.7.0",
 		"ramda": "0.27.0",
